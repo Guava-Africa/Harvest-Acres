@@ -1,0 +1,117 @@
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* BLURRED BACKGROUND IMAGE */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url('/images/harvest-acres-background-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(4px);
+  transform: scale(1.1); /* prevents blur edges showing */
+
+  z-index: 0;
+}
+
+/* LIGHT OVERLAY FOR READABILITY */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0.7)
+  );
+
+  z-index: 1;
+}
+
+/* ENSURE CONTENT SITS ABOVE BACKGROUND */
+.hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* CARD STYLING (COMPETITIVE ADVANTAGE + PRODUCTS) */
+.card {
+  padding: 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5C4522;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.85rem;
+  color: #4b5563;
+  font-weight: 300;
+}
+
+/* ICONS */
+.icon {
+  width: 28px;
+  height: 28px;
+  color: #16a34a;
+  margin-bottom: 12px;
+}
+
+/* PRODUCT IMAGE */
+.product-image {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* PRODUCT CARDS */
+.product-card {
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5C4522;
+  margin-bottom: 8px;
+}
+
+.product-card p {
+  font-size: 0.85rem;
+  color: #4b5563;
+  font-weight: 300;
+}
+
+/* SMOOTH FONTS */
+body {
+  -webkit-font-smoothing: antialiased;
+}

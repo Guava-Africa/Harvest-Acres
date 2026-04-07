@@ -1,4 +1,162 @@
-/* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* =========================
+   GLOBAL
+========================= */
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 80px; /* navbar spacing */
+}
+
+/* =========================
+   HERO BASE (SHARED)
+========================= */
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Default Background (Homepage) */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url('/images/harvest-acres-background-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(6px);
+  transform: scale(1.08);
+
+  z-index: 0;
+}
+
+/* =========================
+   ABOUT PAGE BACKGROUND
+========================= */
+
+.hero-about::before {
+  background-image: url('/images/about-background.png');
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    rgba(255,255,255,0.88),
+    rgba(255,255,255,0.75)
+  );
+
+  z-index: 1;
+}
+
+/* =========================
+   CONTENT LAYER
+========================= */
+
+.hero-section > * {
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-primary {
+  background-color: #16a34a;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #15803d;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.premium-card {
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+}
+
+.premium-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   ICONS
+========================= */
+
+.icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 10px;
+  color: #16a34a;
+}
+
+/* =========================
+   TITLES
+========================= */
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #5C4522;
+  margin-bottom: 10px;
+}
