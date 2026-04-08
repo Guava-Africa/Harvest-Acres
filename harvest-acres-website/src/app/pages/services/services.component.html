@@ -1,104 +1,170 @@
 <app-page-wrapper>
+  <!-- HERO SECTION -->
+  <div 
+    class="text-center mb-20 py-24 px-6 rounded-2xl text-white relative overflow-hidden animate-fade-in"
+    style="
+      background-image: url('/images/harvest-acres-background-image.png');
+      background-size: cover;
+      background-position: center;
+    "
+  >
+    <div class="absolute inset-0 bg-black/60"></div>
 
-  <!-- PAGE TITLE -->
-  <div class="text-center mb-20">
-    <h1 class="text-4xl font-bold mb-6">
-      Our Services & Products
-    </h1>
+    <div class="relative z-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6">
+        Our Services & Products
+      </h1>
 
-    <p class="text-gray-600 max-w-3xl mx-auto">
-      Harvest Acres offers a diverse range of high-quality beverages designed to meet the needs of health-conscious consumers,
-      businesses, and modern lifestyles across Zimbabwe.
-    </p>
+      <p class="max-w-3xl mx-auto text-lg text-gray-200">
+        Harvest Acres delivers high-quality beverages built for modern lifestyles —
+        combining natural ingredients, innovation, and scalable distribution.
+      </p>
+    </div>
   </div>
 
-  <!-- CURRENT OFFERINGS -->
-  <app-section-title>
-    Current Offerings
+  <!-- PRODUCT PORTFOLIO -->
+  <app-section-title class="animate-fade-in">
+    Product Portfolio
   </app-section-title>
 
-  <div class="grid md:grid-cols-2 gap-8 mb-20">
+  <h3 class="text-xl font-semibold mb-6 text-gray-700 animate-fade-in">
+    Current Offerings
+  </h3>
 
-    <app-card>
-      <h3 class="text-xl font-bold mb-2">Fruit Juices</h3>
-      <p class="text-gray-600">
-        Baobab, Orange, Apple, Mango, Pineapple, and Mixed Fruit — crafted using natural juices, powders, and concentrates.
-      </p>
+  <div class="grid md:grid-cols-2 gap-10 mb-20">
+
+    <!-- JUICE WITH CAROUSEL -->
+    <app-card class="hover:shadow-xl transition duration-300 border-l-4 border-primary animate-fade-in">
+      <span class="absolute top-4 right-4 bg-primary text-white text-xs px-3 py-1 rounded-full">
+        CORE PRODUCT
+      </span>
+
+      <!-- ✅ SWIPER CAROUSEL -->
+      <swiper-container
+        pagination="true"
+        navigation="true"
+        autoplay="true"
+        loop="true"
+        class="mb-4"
+      >
+        <swiper-slide>
+          <img 
+            src="/images/HarvestAcresJuice.png" 
+            alt="Harvest Acres Juice" 
+            class="w-full h-48 object-contain rounded-lg"
+            loading="lazy"
+          />
+        </swiper-slide>
+        <swiper-slide>
+          <img 
+            src="/images/HarvestAcresJuice.png" 
+            alt="Harvest Acres Juice" 
+            class="w-full h-48 object-contain rounded-lg"
+            loading="lazy"
+          />
+        </swiper-slide>
+      </swiper-container>
+
+      <div class="flex items-start gap-4">
+        <div class="text-3xl">🧃</div>
+        <div>
+          <h3 class="text-xl font-bold mb-2">Fruit Juices</h3>
+          <p class="text-gray-600 mb-2">
+            Baobab, Orange, Apple, Mango, Pineapple, and Mixed Fruit blends.
+          </p>
+          <p class="text-sm text-gray-500">
+            Produced using a mix of juices, powders, and concentrates to ensure
+            consistent taste, quality, and affordability.
+          </p>
+        </div>
+      </div>
     </app-card>
 
-    <app-card>
-      <h3 class="text-xl font-bold mb-2">Purified Water</h3>
-      <p class="text-gray-600">
-        Locally sourced and purified bottled water meeting high safety and quality standards.
-      </p>
+    <!-- WATER -->
+    <app-card class="hover:shadow-xl transition duration-300 border-l-4 border-blue-400 animate-fade-in">
+      <img 
+        src="/images/HarvestAcreeswater.png"
+        alt="Harvest Acres Water"
+        class="w-full h-48 object-contain mb-4 rounded-lg"
+        loading="lazy"
+      />
+
+      <div class="flex items-start gap-4">
+        <div class="text-blue-400 text-3xl">💧</div>
+        <div>
+          <h3 class="text-xl font-bold mb-2">Mineral Water</h3>
+          <p class="text-gray-600">
+            Locally sourced and purified to the highest safety standards.
+          </p>
+        </div>
+      </div>
     </app-card>
 
+    <!-- CORDIALS -->
+    <app-card class="hover:shadow-xl transition duration-300 border-l-4 border-green-500 animate-fade-in">
+      <div class="flex items-start gap-4">
+        <div class="text-3xl">🥤</div>
+        <div>
+          <h3 class="text-xl font-bold mb-2">2L Cordials</h3>
+          <p class="text-gray-600">
+            Family-sized beverage concentrates designed for convenience and affordability.
+          </p>
+        </div>
+      </div>
+    </app-card>
   </div>
 
   <!-- FUTURE PRODUCTS -->
-  <app-section-title>
-    Future Products
+  <app-section-title class="animate-fade-in">
+    Future Innovations
   </app-section-title>
 
-  <div class="grid md:grid-cols-2 gap-8 mb-20">
-
-    <app-card>
+  <div class="grid md:grid-cols-2 gap-10 mb-20">
+    <app-card class="animate-fade-in">
       <h3 class="text-xl font-bold mb-2">Sugarcane Juice</h3>
-      <p class="text-gray-600">
-        Fresh-pressed and naturally energizing hydration.
-      </p>
+      <p class="text-gray-600">Fresh-pressed natural energy drink.</p>
     </app-card>
 
-    <app-card>
+    <app-card class="animate-fade-in">
       <h3 class="text-xl font-bold mb-2">Flavoured & Sparkling Water</h3>
-      <p class="text-gray-600">
-        Light, refreshing options with natural infusions.
-      </p>
+      <p class="text-gray-600">Light, refreshing infused hydration.</p>
     </app-card>
 
-    <app-card>
+    <app-card class="animate-fade-in">
       <h3 class="text-xl font-bold mb-2">Iced Teas & Herbal Infusions</h3>
-      <p class="text-gray-600">
-        Wellness-focused drinks for mindful consumers.
-      </p>
+      <p class="text-gray-600">Wellness-focused beverages.</p>
     </app-card>
 
-    <app-card>
-      <h3 class="text-xl font-bold mb-2">Smart Juice Machines</h3>
-      <p class="text-gray-600">
-        Self-service vending machines for convenient, on-the-go refreshment.
-      </p>
+    <app-card class="animate-fade-in">
+      <h3 class="text-xl font-bold mb-2">Self-Service Juice Machines</h3>
+      <p class="text-gray-600">Interactive vending solutions.</p>
     </app-card>
-
   </div>
 
-  <!-- BUSINESS MODEL -->
-  <app-section-title>
-    How We Operate
+  <!-- MARKET STRATEGY -->
+  <app-section-title class="animate-fade-in">
+    Market Strategy
   </app-section-title>
 
-  <div class="mb-20 text-center">
-    <app-card>
-      <p class="text-gray-600">
-        We serve both retail and wholesale markets, supplying supermarkets, hotels, restaurants,
-        corporate offices, and direct consumers through a growing distribution network.
-      </p>
+  <div class="grid md:grid-cols-2 gap-10">
+    <app-card class="animate-fade-in">
+      <h3 class="font-bold mb-2">Digital Engagement</h3>
+      <p class="text-gray-600">Social media campaigns and brand awareness.</p>
+    </app-card>
+
+    <app-card class="animate-fade-in">
+      <h3 class="font-bold mb-2">Retail Partnerships</h3>
+      <p class="text-gray-600">Supermarket and distributor placements.</p>
+    </app-card>
+
+    <app-card class="animate-fade-in">
+      <h3 class="font-bold mb-2">Experiential Marketing</h3>
+      <p class="text-gray-600">Events, expos, and community engagement.</p>
+    </app-card>
+
+    <app-card class="animate-fade-in">
+      <h3 class="font-bold mb-2">Customer Loyalty</h3>
+      <p class="text-gray-600">Subscriptions and reward programs.</p>
     </app-card>
   </div>
-
-  <!-- CTA -->
-  <div class="text-center">
-    <h2 class="text-2xl font-bold mb-4">
-      Interested in Our Products?
-    </h2>
-
-    <p class="text-gray-600 mb-6 max-w-xl mx-auto">
-      Partner with Harvest Acres or explore our product range today.
-    </p>
-
-    <a routerLink="/" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-dark">
-      Back to Home
-    </a>
-  </div>
-
 </app-page-wrapper>
