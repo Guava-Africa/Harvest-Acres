@@ -3,7 +3,7 @@
   <!-- PAGE TITLE -->
   <div class="text-center mb-20">
     <h1 class="text-4xl font-bold mb-6">
-      Our Services & Products
+      Our Products
     </h1>
 
     <p class="text-gray-600 max-w-3xl mx-auto">
@@ -12,12 +12,12 @@
     </p>
   </div>
 
-  <!-- CURRENT OFFERINGS -->
+  <!-- CURRENT PRODUCTS -->
   <app-section-title>
-    Current Offerings
+    Current Products
   </app-section-title>
 
-  <div class="grid md:grid-cols-2 gap-8 mb-20">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
 
     <app-card>
       <h3 class="text-xl font-bold mb-2">Fruit Juices</h3>
@@ -33,14 +33,21 @@
       </p>
     </app-card>
 
+    <app-card>
+      <h3 class="text-xl font-bold mb-2">Sparkling Water</h3>
+      <p class="text-gray-600">
+        Crisp, carbonated refreshment with natural mineral content. Perfect for any occasion.
+      </p>
+    </app-card>
+
   </div>
 
-  <!-- FUTURE PRODUCTS -->
+  <!-- UPCOMING PRODUCTS -->
   <app-section-title>
-    Future Products
+    Upcoming Products
   </app-section-title>
 
-  <div class="grid md:grid-cols-2 gap-8 mb-20">
+  <div class="grid md:grid-cols-3 gap-8 mb-20">
 
     <app-card>
       <h3 class="text-xl font-bold mb-2">Sugarcane Juice</h3>
@@ -50,9 +57,9 @@
     </app-card>
 
     <app-card>
-      <h3 class="text-xl font-bold mb-2">Flavoured & Sparkling Water</h3>
+      <h3 class="text-xl font-bold mb-2">Flavoured Water</h3>
       <p class="text-gray-600">
-        Light, refreshing options with natural infusions.
+        Light, refreshing options with natural fruit infusions.
       </p>
     </app-card>
 
@@ -63,42 +70,54 @@
       </p>
     </app-card>
 
-    <app-card>
-      <h3 class="text-xl font-bold mb-2">Smart Juice Machines</h3>
-      <p class="text-gray-600">
-        Self-service vending machines for convenient, on-the-go refreshment.
-      </p>
-    </app-card>
-
   </div>
 
-  <!-- BUSINESS MODEL -->
+  <!-- DISTRIBUTION -->
   <app-section-title>
-    How We Operate
+    Where to Find Our Products
   </app-section-title>
 
-  <div class="mb-20 text-center">
+  <div class="mb-20">
     <app-card>
-      <p class="text-gray-600">
-        We serve both retail and wholesale markets, supplying supermarkets, hotels, restaurants,
-        corporate offices, and direct consumers through a growing distribution network.
-      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div>
+          <h3 class="font-semibold text-lg mb-1">Retail Stores</h3>
+          <p class="text-gray-600 text-sm">Supermarkets and local shops nationwide</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1">Hotels & Restaurants</h3>
+          <p class="text-gray-600 text-sm">Serving the hospitality industry</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1">Corporate Offices</h3>
+          <p class="text-gray-600 text-sm">Bulk supply for workplaces</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1">Direct Delivery</h3>
+          <p class="text-gray-600 text-sm">Home and business delivery available</p>
+        </div>
+      </div>
     </app-card>
   </div>
 
   <!-- CTA -->
   <div class="text-center">
     <h2 class="text-2xl font-bold mb-4">
-      Interested in Our Products?
+      Ready to Try Our Products?
     </h2>
 
     <p class="text-gray-600 mb-6 max-w-xl mx-auto">
-      Partner with Harvest Acres or explore our product range today.
+      Partner with Harvest Acres or place your order today.
     </p>
 
-    <a routerLink="/" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-dark">
-      Back to Home
-    </a>
+    <div class="flex gap-4 justify-center">
+      <a routerLink="/contact" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-amber-800 transition duration-300">
+        Contact Sales
+      </a>
+      <a routerLink="/" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition duration-300">
+        Back to Home
+      </a>
+    </div>
   </div>
 
 </app-page-wrapper>

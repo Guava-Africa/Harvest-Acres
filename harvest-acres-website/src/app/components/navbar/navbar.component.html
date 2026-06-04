@@ -7,43 +7,57 @@
       alt="Harvest Acres Logo"
       class="h-14 object-contain"
     />
-    <span class="text-lg font-bold tracking-wide text-[#5C4522]">
-      Harvest Acres
-    </span>
   </div>
 
-  <!-- LINKS -->
-  <div class="hidden md:flex items-center gap-8 text-gray-800 font-medium">
+ <!-- LINKS -->
+<div class="hidden md:flex items-center gap-3 text-gray-800 font-medium">
 
-    <!-- Interactive HOME Button -->
-    <a routerLink="/"
-       class="px-4 py-2 rounded-full bg-green-600 text-white font-medium shadow-sm 
-              hover:bg-green-700 hover:shadow-md transition duration-300 flex items-center gap-2 group">
+  <!-- Interactive HOME Button -->
+  <a routerLink="/" routerLinkActive="bg-green-600 text-white"
+     class="px-4 py-2 rounded-full font-medium shadow-sm hover:bg-green-700 hover:shadow-md transition duration-300"
+     [routerLinkActiveOptions]="{ exact: true }">
+    Home
+  </a>
 
-      <svg xmlns="http://www.w3.org/2000/svg" 
-           class="h-4 w-4 transition-transform duration-300 group-hover:scale-110" 
-           fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-              d="M3 9.75L12 4l9 5.75V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1V9.75z" />
-      </svg>
-
-      Home
-    </a>
-
-    <!-- Standard Links -->
-    <a routerLink="/about" 
-       class="relative group hover:text-green-700 transition duration-200">
+  <!-- ABOUT with DROPDOWN (Our Team + Corporate Governance) -->
+  <div class="relative group">
+    <a routerLink="/about" routerLinkActive="bg-green-600 text-white"
+       class="relative transition duration-200 px-4 py-2 rounded-full hover:bg-green-50 flex items-center gap-1"
+       [routerLinkActiveOptions]="{ exact: true }">
       About
-      <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-green-600 transition-all duration-300 group-hover:w-full"></span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
     </a>
-
-    <a routerLink="/services" 
-       class="relative group hover:text-green-700 transition duration-200">
-      Services
-      <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-green-600 transition-all duration-300 group-hover:w-full"></span>
-    </a>
-
+    
+    <!-- Dropdown Menu -->
+    <div class="absolute left-0 mt-3 w-56 bg-white rounded-xl shadow-xl border border-gray-200 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <a routerLink="/about#team" routerLinkActive="bg-green-100 text-green-700"
+         class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
+        Our Team
+      </a>
+      <a routerLink="/governance" routerLinkActive="bg-green-100 text-green-700"
+         class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
+        Corporate Governance
+      </a>
+    </div>
   </div>
+
+  <!-- PRODUCTS (links to services) -->
+  <a routerLink="/services" routerLinkActive="bg-green-600 text-white"
+     class="relative transition duration-200 px-4 py-2 rounded-full hover:bg-green-50"
+     [routerLinkActiveOptions]="{ exact: true }">
+    Products
+  </a>
+
+  <!-- CONTACT link -->
+  <a routerLink="/contact" routerLinkActive="bg-green-600 text-white"
+     class="relative transition duration-200 px-4 py-2 rounded-full hover:bg-green-50"
+     [routerLinkActiveOptions]="{ exact: true }">
+    Contact
+  </a>
+
+</div>
 
   <!-- MOBILE MENU -->
   <div class="md:hidden">
