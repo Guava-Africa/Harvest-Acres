@@ -1,0 +1,10 @@
+{
+  "name": "harvest-acres",
+  "private": true,
+  "scripts": {
+    "dev": "npm start --prefix harvest-acres-website",
+    "start": "npm start --prefix harvest-acres-website",
+    "build": "npm run build --prefix harvest-acres-website",
+    "install:website": "npm install --prefix harvest-acres-website"
+  }
+}

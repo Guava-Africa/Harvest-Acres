@@ -5,7 +5,7 @@ import { importProvidersFrom } from '@angular/core';
 import { routes } from './app.routes';
 
 // Lucide imports
-import { LucideAngularModule, Leaf, Heart, Recycle, Cpu, Award, Users, Lightbulb, MapPin, Factory, TrendingUp, ShieldCheck, Globe, ShoppingCart, Activity, Gift } from 'lucide-angular';
+import { LucideAngularModule, Leaf, Heart, Recycle, Cpu, Award, Users, Lightbulb, MapPin, Factory, TrendingUp, ShieldCheck, Globe, ShoppingCart, Activity, Gift, Sprout, Droplets, Sparkles, ArrowRight, GlassWater, Zap } from 'lucide-angular';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -29,7 +29,13 @@ export const appConfig: ApplicationConfig = {
         Globe,
         ShoppingCart,
         Activity,
-        Gift
+        Gift,
+        Sprout,
+        Droplets,
+        Sparkles,
+        ArrowRight,
+        GlassWater,
+        Zap
       })
     )
   ]

@@ -1,184 +1,498 @@
-<!-- HERO SECTION -->
-<section class="hero-section px-6 py-20 font-sans">
+<!-- HERO -->
+<section class="hero-section hero-home hero-home--split">
 
-  <div class="max-w-6xl mx-auto text-center">
+  <div class="hero-split-inner">
 
-    <!-- COMPANY LOGO -->
-    <div class="flex justify-center mb-6">
-      <img 
-        src="/images/harvest-acres-logo.png"
-        alt="Harvest Acres Logo"
-        class="w-48 md:w-64 object-contain"
-      />
+    <div class="hero-split-copy hero-content">
+      <p class="hero-eyebrow">Naturally Inspired Foods</p>
+      <h1 class="hero-title font-display">
+        Naturally Refreshing Zimbabwe.
+      </h1>
+      <p class="hero-subtitle font-display">Healthy Drinks. Real Ingredients.</p>
+      <p class="hero-lead">
+        Natural beverages from locally sourced fruits and vegetables — freshness,
+        sustainability, and community in every bottle.
+      </p>
+      <div class="hero-cta-row">
+        <a routerLink="/services" class="btn-primary group">
+          Explore Products
+          <lucide-icon name="arrow-right" class="btn-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
+        </a>
+        <a routerLink="/business" class="btn-secondary">
+          Partner With Us
+        </a>
+      </div>
     </div>
 
-    <!-- SUBTITLE -->
-    <p class="uppercase tracking-widest text-green-700 text-xs mb-3 font-semibold">
-      Proudly Zimbabwean • Naturally Inspired
-    </p>
-
-    <!-- MAIN HEADING -->
-    <h1 class="text-4xl md:text-5xl font-bold text-[#5C4522] mb-4 leading-tight">
-      Pure. Fresh. <br />
-      <span class="text-green-600">Harvested with Care.</span>
-    </h1>
-
-    <!-- DESCRIPTION -->
-    <p class="text-gray-700 max-w-xl mx-auto leading-relaxed mb-6 text-sm md:text-base font-light">
-      Harvest Acres partners with Zimbabwe’s SME farmers to deliver beverages made from locally sourced fruits and vegetables. 
-      With recyclable packaging and eco-friendly processing, we bring freshness, sustainability, and community empowerment to every bottle.
-    </p>
-
-    <!-- BUTTONS -->
-    <div class="flex justify-center gap-3">
-      <a routerLink="/services"
-         class="bg-green-600 text-white px-5 py-2.5 rounded-full shadow hover:bg-green-700 hover:scale-105 transition duration-200">
-        View Products
-      </a>
-      <a routerLink="/about"
-         class="border border-green-300 text-green-700 px-5 py-2.5 rounded-full hover:bg-green-50 hover:scale-105 transition duration-200">
-        Learn More
-      </a>
+    <div class="hero-split-visual">
+      <div class="hero-visual-card">
+        <div class="hero-visual-wrap">
+          <img
+            src="/images/harvest-acres-product-lineup-hero.png"
+            alt="Harvest Acres product lineup — water, fruit juices, and Tamba drinks"
+            class="hero-split-img"
+            width="1920"
+            height="1080"
+            fetchpriority="high"
+          />
+          <div class="hero-img-edge-blur" aria-hidden="true">
+            <img
+              src="/images/harvest-acres-product-lineup-hero.png"
+              alt=""
+              class="hero-split-img hero-split-img--edge-blur"
+              width="1920"
+              height="1080"
+            />
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
+
 </section>
+
+
+
+<!-- STATS -->
+
+<section id="stats-section" class="stats-bar">
+
+  <div class="stats-bar-inner reveal">
+
+    <div class="max-w-6xl mx-auto px-5 md:px-6 py-10 md:py-12 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-6 text-center">
+
+      @for (stat of stats; track stat.label; let i = $index) {
+
+        <div class="reveal stat-item" [style.transition-delay.ms]="i * 120">
+
+          <p class="stat-value font-display text-3xl md:text-4xl font-bold mb-1" [class.stat-value--animated]="statsAnimated">
+
+            {{ formatStat(stat) }}
+
+          </p>
+
+          <p class="text-xs md:text-sm text-gray-500 font-medium tracking-wide uppercase">
+
+            {{ stat.label }}
+
+          </p>
+
+        </div>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- FARM TO BOTTLE -->
+
+<section class="section-pad px-5 md:px-6 bg-harvest-cream section-cream">
+
+  <div class="max-w-6xl mx-auto">
+
+
+
+    <div class="reveal text-center mb-12 md:mb-16">
+
+      <p class="section-eyebrow">Our Process</p>
+
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-harvest-brown tracking-tight">
+
+        From Farm to Bottle
+
+      </h2>
+
+      <p class="text-gray-600 mt-3 max-w-2xl mx-auto text-sm md:text-base">
+
+        Every sip traces back to Zimbabwean soil &mdash; responsibly sourced, carefully crafted, proudly delivered.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="pipeline-grid">
+
+      @for (step of pipeline; track step.title; let i = $index; let last = $last) {
+
+        <div class="reveal pipeline-step" [style.transition-delay.ms]="i * 100">
+
+          <div class="pipeline-icon-wrap">
+
+            <lucide-icon [name]="step.icon" class="pipeline-icon"></lucide-icon>
+
+          </div>
+
+          <h3 class="font-semibold text-harvest-brown mb-2">{{ step.title }}</h3>
+
+          <p class="text-sm text-gray-600 leading-relaxed">{{ step.description }}</p>
+
+        </div>
+
+        @if (!last) {
+
+          <div class="pipeline-connector reveal hidden md:block" [style.transition-delay.ms]="i * 100 + 60" aria-hidden="true"></div>
+
+        }
+
+      }
+
+    </div>
+
+
+
+  </div>
+
+</section>
+
+
 
 <!-- COMPETITIVE ADVANTAGE -->
-<section class="py-16 px-6 font-sans">
+
+<section class="section-pad px-5 md:px-6 section-white">
+
   <div class="max-w-6xl mx-auto">
-    
-    <h2 class="text-2xl font-semibold text-center text-[#5C4522] mb-10">
-      Our Competitive Advantage
-    </h2>
 
-    <div class="grid md:grid-cols-4 gap-6 text-center">
 
-      <!-- LOCALLY SOURCED -->
-      <div class="card">
-        <!-- TREE ICON -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                d="M12 2l3 7h-6l3-7zm0 7v13m-4-7h8" />
-        </svg>
-        <h3>Locally Sourced</h3>
-        <p>Supporting Zimbabwean farmers to ensure freshness and community impact.</p>
-      </div>
 
-      <!-- HEALTH FOCUSED -->
-      <div class="card">
-        <!-- SHIELD ICON -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z" />
-        </svg>
-        <h3>Health Focused</h3>
-        <p>Free from artificial colours, preservatives, and sweeteners.</p>
-      </div>
+    <div class="reveal text-center mb-12 md:mb-16">
 
-      <!-- SUSTAINABILITY -->
-      <div class="card">
-        <!-- RECYCLE ICON -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                d="M17 1l4 4-4 4m-3-3H3m14 16l-4-4 4-4m-11 3h14" />
-        </svg>
-        <h3>Sustainability</h3>
-        <p>Eco-friendly packaging and environmentally conscious production.</p>
-      </div>
+      <p class="section-eyebrow">Why Harvest Acres</p>
 
-      <!-- TECHNOLOGY -->
-      <div class="card">
-        <!-- CPU ICON -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m14 0h2M3 15h2m14 0h2M7 7h10v10H7V7z" />
-        </svg>
-        <h3>Technology</h3>
-        <p>Smart juice vending machines for on-the-go refreshment.</p>
-      </div>
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-harvest-brown tracking-tight">
+
+        Our Competitive Advantage
+
+      </h2>
 
     </div>
+
+
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+
+      @for (item of advantages; track item.title; let i = $index) {
+
+        <div class="reveal advantage-card" [style.transition-delay.ms]="i * 80">
+
+          <div class="advantage-icon-wrap">
+
+            <lucide-icon [name]="item.icon" class="advantage-icon"></lucide-icon>
+
+          </div>
+
+          <h3>{{ item.title }}</h3>
+
+          <p>{{ item.description }}</p>
+
+        </div>
+
+      }
+
+    </div>
+
+
+
   </div>
+
 </section>
+
+
 
 <!-- PRODUCTS -->
-<section class="bg-green-50 py-16 px-6 font-sans">
-  <div class="max-w-6xl mx-auto text-center">
 
-    <h2 class="text-2xl font-semibold text-[#5C4522] mb-6">
-      Our Products
-    </h2>
+<section class="section-pad px-5 md:px-6 bg-harvest-cream section-cream">
 
-    <p class="text-gray-700 mb-10 text-sm md:text-base font-light">
-      Discover our refreshing range of beverages crafted with care and natural ingredients.
-    </p>
+  <div class="max-w-6xl mx-auto">
 
-    <div class="flex justify-center mb-8">
-      <img 
-        src="/images/HeroSectionImage.png"
-        alt="Harvest Acres Products"
-        class="product-image"
+
+
+    <div class="reveal text-center mb-12 md:mb-16">
+
+      <p class="section-eyebrow">What We Make</p>
+
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-harvest-brown mb-3 tracking-tight">
+
+        Our Products
+
+      </h2>
+
+      <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+
+        A refreshing range of beverages crafted with care and natural ingredients.
+
+      </p>
+
+    </div>
+
+
+
+    <!-- Featured product photography -->
+
+    <div class="product-gallery mb-10 md:mb-12">
+
+      @for (showcase of productShowcases; track showcase.title; let i = $index) {
+
+        <article
+
+          class="reveal product-showcase"
+
+          [class.product-showcase--wide]="i === 0"
+
+          [style.transition-delay.ms]="i * 120"
+
+        >
+
+          <div class="product-showcase-img-wrap">
+
+            <div class="product-showcase-overlay" aria-hidden="true"></div>
+
+            <img
+
+              [src]="showcase.image"
+
+              [alt]="showcase.alt"
+
+              class="product-showcase-img"
+
+              loading="lazy"
+
+            />
+
+          </div>
+
+          <div class="product-showcase-body">
+
+            @if (showcase.tagline) {
+
+              <p class="product-showcase-tagline">{{ showcase.tagline }}</p>
+
+            }
+
+            <h3 class="font-display text-xl md:text-2xl font-bold text-harvest-brown mb-2">
+
+              {{ showcase.title }}
+
+            </h3>
+
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">{{ showcase.description }}</p>
+
+            @if (showcase.flavors) {
+
+              <div class="flavor-tags">
+
+                @for (flavor of showcase.flavors; track flavor) {
+
+                  <span class="flavor-tag">{{ flavor }}</span>
+
+                }
+
+              </div>
+
+            }
+
+            @if (showcase.badges) {
+
+              <div class="product-badges">
+
+                @for (badge of showcase.badges; track badge) {
+
+                  <span class="product-badge">{{ badge }}</span>
+
+                }
+
+              </div>
+
+            }
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+
+
+    <!-- Secondary juice lineup -->
+
+    <div class="reveal product-banner mb-10 md:mb-12">
+
+      <img
+
+        src="/images/harvest-acres-juice-lineup.png"
+
+        alt="Harvest Acres juice bottles with fresh fruit ingredients"
+
+        class="product-banner-img"
+
+        loading="lazy"
+
       />
-    </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+      <div class="product-banner-caption">
 
-      <div class="product-card">
-        <h3>Fruit Juices</h3>
-        <p>Baobab, Orange, Apple, Mango, Pineapple, Mixed Fruit.</p>
-      </div>
+        <p class="text-sm font-semibold text-harvest-brown">Farm-fresh ingredients in every bottle</p>
 
-      <div class="product-card">
-        <h3>Mineral Water</h3>
-        <p>Locally sourced and purified to the highest standards.</p>
-      </div>
-
-      <div class="product-card">
-        <h3>2L Cordials</h3>
-        <p>Family-sized refreshment for every occasion.</p>
       </div>
 
     </div>
+
+
+
+    <!-- Quick product summary cards -->
+
+    <div class="grid md:grid-cols-3 gap-5 md:gap-6">
+
+      @for (product of products; track product.title; let i = $index) {
+
+        <div class="reveal product-card" [style.transition-delay.ms]="i * 100">
+
+          <div class="product-card-icon-wrap">
+
+            <lucide-icon [name]="product.icon" class="product-card-icon"></lucide-icon>
+
+          </div>
+
+          <h3>{{ product.title }}</h3>
+
+          <p>{{ product.description }}</p>
+
+        </div>
+
+      }
+
+    </div>
+
+
+
+    <div class="reveal text-center mt-10 md:mt-12">
+
+      <a routerLink="/services" class="btn-primary inline-flex group">
+
+        Explore Full Catalog
+
+        <lucide-icon name="arrow-right" class="btn-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
+
+      </a>
+
+    </div>
+
+
 
   </div>
+
 </section>
+
+
 
 <!-- COMING SOON -->
-<section class="py-16 px-6 font-sans">
-  <div class="max-w-6xl mx-auto text-center">
 
-    <h2 class="text-2xl font-semibold text-[#5C4522] mb-6">
-      Coming Soon
+<section class="section-pad px-5 md:px-6 section-white">
+
+  <div class="max-w-6xl mx-auto">
+
+
+
+    <div class="reveal text-center mb-10 md:mb-12">
+
+      <p class="section-eyebrow">On the Horizon</p>
+
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-harvest-brown mb-3 tracking-tight">
+
+        Coming Soon
+
+      </h2>
+
+      <p class="text-gray-600 text-sm md:text-base">
+
+        We&rsquo;re expanding our range to bring you even more refreshing options.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+
+      @for (item of comingSoon; track item.title; let i = $index) {
+
+        <div class="reveal coming-soon-card" [style.transition-delay.ms]="i * 80">
+
+          <span class="coming-badge">Soon</span>
+
+          <div class="coming-icon-wrap">
+
+            <lucide-icon [name]="item.icon" class="coming-icon"></lucide-icon>
+
+          </div>
+
+          <h3>{{ item.title }}</h3>
+
+          <p>{{ item.description }}</p>
+
+        </div>
+
+      }
+
+    </div>
+
+
+
+  </div>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section class="cta-section px-5 md:px-6 py-16 md:py-24">
+
+  <div class="cta-texture" aria-hidden="true"></div>
+
+  <div class="reveal max-w-3xl mx-auto text-center">
+
+    <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+
+      Taste the Difference
+
     </h2>
 
-    <p class="text-gray-700 mb-10 text-sm md:text-base font-light">
-      We’re expanding our range to bring you even more refreshing options.
+    <p class="text-green-50/90 mb-8 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+
+      Partner with Harvest Acres for wholesale, hospitality supply, or discover our products at retailers near you.
+
     </p>
 
-    <div class="grid md:grid-cols-4 gap-6">
+    <div class="flex flex-wrap justify-center gap-3 md:gap-4">
 
-      <div class="product-card">
-        <h3>Sugarcane Juice</h3>
-        <p>Fresh-pressed for natural, energizing hydration.</p>
-      </div>
+      <a routerLink="/business" class="btn-cta-primary group">
 
-      <div class="product-card">
-        <h3>Flavoured Water</h3>
-        <p>Lightly infused options for enhanced refreshment.</p>
-      </div>
+        Partner With Us
 
-      <div class="product-card">
-        <h3>Juice Machines</h3>
-        <p>Interactive vending at supermarkets, malls, and gyms.</p>
-      </div>
+        <lucide-icon name="arrow-right" class="btn-icon ml-1 group-hover:translate-x-1 transition-transform"></lucide-icon>
 
-      <div class="product-card">
-        <h3>Herbal Infusions</h3>
-        <p>Wellness blends designed for the mindful consumer.</p>
-      </div>
+      </a>
+
+      <a routerLink="/services" class="btn-cta-secondary">
+
+        View Products
+
+      </a>
 
     </div>
 
   </div>
+
 </section>
+

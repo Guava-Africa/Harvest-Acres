@@ -1,73 +1,115 @@
-<nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/70 border-b border-gray-200 shadow-md py-4 px-6 flex items-center justify-between font-sans">
+<header
+  class="navbar"
+  [class.navbar--scrolled]="isScrolled"
+  [class.navbar--open]="isMenuOpen"
+>
+  <div class="navbar-inner">
 
-  <!-- LOGO + BRAND -->
-  <div class="flex items-center gap-3">
-    <img 
-      src="/images/harvest-acres-logo.png"
-      alt="Harvest Acres Logo"
-      class="h-14 object-contain"
-    />
-  </div>
-
- <!-- LINKS -->
-<div class="hidden md:flex items-center gap-3 text-gray-800 font-medium">
-
-  <!-- Interactive HOME Button -->
-  <a routerLink="/" routerLinkActive="bg-green-600 text-white"
-     class="px-4 py-2 rounded-full font-medium shadow-sm hover:bg-green-700 hover:shadow-md transition duration-300"
-     [routerLinkActiveOptions]="{ exact: true }">
-    Home
-  </a>
-
-  <!-- ABOUT with DROPDOWN (Our Team + Corporate Governance) -->
-  <div class="relative group">
-    <a routerLink="/about" routerLinkActive="bg-green-600 text-white"
-       class="relative transition duration-200 px-4 py-2 rounded-full hover:bg-green-50 flex items-center gap-1"
-       [routerLinkActiveOptions]="{ exact: true }">
-      About
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-      </svg>
+    <!-- Logo -->
+    <a routerLink="/" class="navbar-brand" (click)="closeMenu()">
+      <img
+        src="/images/harvest-acres-logo.png"
+        alt="Harvest Acres"
+        class="navbar-logo"
+      />
     </a>
-    
-    <!-- Dropdown Menu -->
-    <div class="absolute left-0 mt-3 w-56 bg-white rounded-xl shadow-xl border border-gray-200 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-      <a routerLink="/about#team" routerLinkActive="bg-green-100 text-green-700"
-         class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
-        Our Team
-      </a>
-      <a routerLink="/governance" routerLinkActive="bg-green-100 text-green-700"
-         class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
-        Corporate Governance
-      </a>
-    </div>
-  </div>
 
-  <!-- PRODUCTS (links to services) -->
-  <a routerLink="/services" routerLinkActive="bg-green-600 text-white"
-     class="relative transition duration-200 px-4 py-2 rounded-full hover:bg-green-50"
-     [routerLinkActiveOptions]="{ exact: true }">
-    Products
-  </a>
+    <!-- Desktop navigation -->
+    <nav class="navbar-nav hidden lg:flex" aria-label="Main navigation">
+      <a
+        routerLink="/"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link"
+      >Home</a>
 
-  <!-- CONTACT link -->
-  <a routerLink="/contact" routerLinkActive="bg-green-600 text-white"
-     class="relative transition duration-200 px-4 py-2 rounded-full hover:bg-green-50"
-     [routerLinkActiveOptions]="{ exact: true }">
-    Contact
-  </a>
+      <div class="nav-dropdown group">
+        <a
+          routerLink="/about"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-link nav-link--dropdown"
+        >
+          About
+          <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a routerLink="/about#team" class="nav-dropdown-item">Our Team</a>
+          <a routerLink="/governance" class="nav-dropdown-item">Corporate Governance</a>
+        </div>
+      </div>
 
-</div>
+      <a
+        routerLink="/services"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link"
+      >Products</a>
 
-  <!-- MOBILE MENU -->
-  <div class="md:hidden">
-    <button class="text-gray-800 hover:text-green-700 transition duration-200">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
-           viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-              d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
+      <a
+        routerLink="/innovation"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link"
+      >Innovation</a>
+
+      <a
+        routerLink="/business"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link"
+      >Business</a>
+
+      <a
+        routerLink="/careers"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link"
+      >Careers</a>
+
+      <a
+        routerLink="/contact"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link"
+      >Contact</a>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <a routerLink="/contact" class="navbar-cta hidden lg:inline-flex">
+      Partner With Us
+    </a>
+
+    <!-- Mobile toggle -->
+    <button
+      type="button"
+      class="navbar-toggle lg:hidden"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="navbar-toggle-bar" [class.is-open]="isMenuOpen"></span>
+      <span class="navbar-toggle-bar" [class.is-open]="isMenuOpen"></span>
+      <span class="navbar-toggle-bar" [class.is-open]="isMenuOpen"></span>
     </button>
+
   </div>
 
-</nav>
+  <!-- Mobile menu -->
+  <div class="navbar-mobile" [class.is-open]="isMenuOpen">
+    <nav class="navbar-mobile-nav" aria-label="Mobile navigation">
+      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Home</a>
+      <a routerLink="/about" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">About</a>
+      <a routerLink="/about#team" class="mobile-link mobile-link--sub" (click)="closeMenu()">Our Team</a>
+      <a routerLink="/governance" class="mobile-link mobile-link--sub" (click)="closeMenu()">Corporate Governance</a>
+      <a routerLink="/services" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Products</a>
+      <a routerLink="/innovation" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Innovation</a>
+      <a routerLink="/business" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Business</a>
+      <a routerLink="/careers" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Careers</a>
+      <a routerLink="/contact" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Contact</a>
+      <a routerLink="/contact" class="mobile-cta" (click)="closeMenu()">Partner With Us</a>
+    </nav>
+  </div>
+</header>
