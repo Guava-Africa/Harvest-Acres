@@ -1,0 +1,17 @@
+<div
+  class="guava-logo relative flex items-center justify-center select-none transition-transform duration-200 active:scale-[0.98]"
+  [ngClass]="className || sizeClass"
+>
+  @if (withHoverGlow) {
+    <div class="guava-logo-glow" aria-hidden="true"></div>
+  }
+
+  <img
+    [src]="logoSrc"
+    alt="Guava Logo"
+    class="guava-logo-img"
+    [class.guava-logo-img--full]="variant === 'full'"
+    [class.guava-logo-img--icon]="variant === 'icon'"
+    draggable="false"
+  />
+</div>

@@ -3,27 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
 
-interface Advantage {
+interface ShelfProduct {
   icon: string;
   title: string;
   description: string;
+  highlights: string[];
 }
 
-interface ProductShowcase {
-  image: string;
-  alt: string;
-  title: string;
-  description: string;
-  tagline?: string;
-  flavors?: string[];
-  badges?: string[];
-}
-
-interface Product {
+interface ComingSoonItem {
   icon: string;
   title: string;
   description: string;
-  flavors?: string[];
+  highlights: string[];
 }
 
 interface Stat {
@@ -57,87 +48,51 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     { label: 'Artificial Additives', target: 0, suffix: '', display: 0 },
   ];
 
-  advantages: Advantage[] = [
-    {
-      icon: 'sprout',
-      title: 'Locally Sourced',
-      description: 'Supporting Zimbabwean farmers to ensure freshness and community impact.',
-    },
-    {
-      icon: 'shield-check',
-      title: 'Health Focused',
-      description: 'Free from artificial colours, preservatives, and sweeteners.',
-    },
-    {
-      icon: 'recycle',
-      title: 'Sustainability',
-      description: 'Eco-friendly packaging and environmentally conscious production.',
-    },
-    {
-      icon: 'cpu',
-      title: 'Technology',
-      description: 'Smart juice vending machines for on-the-go refreshment.',
-    },
-  ];
-
-  products: Product[] = [
-    {
-      icon: 'droplets',
-      title: 'Fruit Juices',
-      description: 'Crafted from natural juices, powders, and concentrates.',
-      flavors: ['Baobab', 'Orange', 'Apple', 'Mango', 'Mixed Fruit'],
-    },
+  shelfProducts: ShelfProduct[] = [
     {
       icon: 'glass-water',
       title: 'Mineral Water',
-      description: 'Pure & refreshing — locally sourced and purified to the highest standards.',
-    },
-    {
-      icon: 'sparkles',
-      title: 'Sparkling Water',
-      description: 'Crisp, carbonated refreshment with natural mineral content.',
-    },
-  ];
-
-  productShowcases: ProductShowcase[] = [
-    {
-      image: '/images/harvest-acres-juices.png',
-      alt: 'Harvest Acres fruit juice range — Baobab, Orange, Apple, Mango, and Mixed Fruit',
-      title: 'Fruit Juices',
-      tagline: 'Five bold flavours',
-      description: 'Crafted from natural juices, powders, and concentrates — each bottle bursting with the taste of real fruit.',
-      flavors: ['Baobab', 'Orange', 'Apple', 'Mango', 'Mixed Fruit'],
-    },
-    {
-      image: '/images/harvest-acres-mineral-water.png',
-      alt: 'Harvest Acres Mineral Water — Pure and Refreshing',
-      title: 'Mineral Water',
-      tagline: 'Pure & Refreshing',
-      description: 'Locally sourced mineral water, purified to the highest quality standards for clean, crisp hydration.',
-      badges: ['Pure', 'High Quality', 'Locally Sourced'],
-    },
-  ];
-
-  comingSoon: Product[] = [
-    {
-      icon: 'zap',
-      title: 'Sugarcane Juice',
-      description: 'Fresh-pressed for natural, energizing hydration.',
+      description: 'Pure, crisp hydration in 500ml bottles — locally sourced and purified to the highest standards.',
+      highlights: ['500ml', 'Pure', 'Locally Sourced'],
     },
     {
       icon: 'droplets',
-      title: 'Flavoured Water',
-      description: 'Lightly infused options for enhanced refreshment.',
+      title: '2L Fruit Cordials',
+      description: 'Bold, fruit-forward cordials perfect for sharing — rich flavour in every pour.',
+      highlights: ['Grape', 'Peach & Granadilla', '2 Litre'],
     },
     {
-      icon: 'cpu',
-      title: 'Juice Machines',
-      description: 'Interactive vending at supermarkets, malls, and gyms.',
+      icon: 'sparkles',
+      title: 'Tamba Ready-to-Drink',
+      description: 'Fun, character-led 500ml juices — grab-and-go refreshment with real fruit taste.',
+      highlights: ['Gogo Grape', 'Captain Pine', 'Zinga Zang', 'Peach & Dyla'],
+    },
+  ];
+
+  comingSoon: ComingSoonItem[] = [
+    {
+      icon: 'zap',
+      title: 'Sugarcane Juice',
+      description: 'Fresh-pressed from Zimbabwean sugarcane stalks — natural, energizing hydration in every glass.',
+      highlights: ['Fresh-Pressed', 'Natural Energy'],
+    },
+    {
+      icon: 'sparkles',
+      title: 'Flavoured & Sparkling Water',
+      description: 'Light fruit infusions and crisp sparkling refreshment — hydration with a twist.',
+      highlights: ['Sparkling', 'Infused'],
+    },
+    {
+      icon: 'sprout',
+      title: 'Baobab Drink',
+      description: 'Creamy baobab goodness rich in Vitamin C — a true Zimbabwean superfruit experience.',
+      highlights: ['Vitamin C', 'Superfruit'],
     },
     {
       icon: 'leaf',
-      title: 'Herbal Infusions',
-      description: 'Wellness blends designed for the mindful consumer.',
+      title: 'Iced Tea & Herbal Infusions',
+      description: 'Cooling iced tea and wellness herbal blends — starting with refreshing Lemon & Mint.',
+      highlights: ['Lemon & Mint', 'Herbal Blends'],
     },
   ];
 

@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-import { PageWrapperComponent } from '../../shared/page-wrapper/page-wrapper.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-careers',
   standalone: true,
-  imports: [PageWrapperComponent],
-  templateUrl: './careers.component.html',
+  template: '<p class="sr-only">Redirecting to careers…</p>',
 })
-export class CareersComponent {}
+export class CareersComponent implements OnInit {
+  ngOnInit(): void {
+    window.location.replace('https://hrxchange.global/');
+  }
+}

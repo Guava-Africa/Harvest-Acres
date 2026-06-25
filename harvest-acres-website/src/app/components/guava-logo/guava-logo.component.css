@@ -1,0 +1,35 @@
+.guava-logo {
+  user-select: none;
+}
+
+.guava-logo-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  background: linear-gradient(to top right, rgba(244, 121, 32, 0.1), rgba(90, 176, 49, 0.1));
+  filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.guava-logo:hover .guava-logo-glow {
+  opacity: 1;
+}
+
+.guava-logo-img {
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  background: transparent;
+}
+
+.guava-logo-img--full {
+  height: 100%;
+  width: auto;
+}
+
+.guava-logo-img--icon {
+  height: 100%;
+  width: 100%;
+}

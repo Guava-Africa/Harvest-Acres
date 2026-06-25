@@ -1,0 +1,26 @@
+<a
+  href="https://guava.africa/"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="inline-flex items-center gap-2 rounded-full border bg-transparent transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
+  [ngClass]="[
+    compact ? 'px-2.5 py-1' : 'px-3 py-1.5',
+    isDark
+      ? 'border-white/10 text-white/55 hover:border-guava-orange/30 hover:bg-white/5'
+      : 'border-orange-100/80 text-slate-400 shadow-[0_10px_24px_rgba(100,116,139,0.08)] hover:border-guava-orange/25 hover:text-slate-600',
+    className
+  ]"
+  (click)="$event.stopPropagation()"
+>
+  <span class="text-[8px] font-black uppercase tracking-[0.2em] leading-none">
+    Powered by
+  </span>
+  <app-guava-logo
+    variant="full"
+    size="sm"
+    [withHoverGlow]="false"
+    [className]="compact
+      ? 'h-8 bg-transparent shadow-none ring-0'
+      : 'h-10 bg-transparent shadow-none ring-0'"
+  />
+</a>

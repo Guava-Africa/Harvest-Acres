@@ -1,0 +1,131 @@
+<div class="ib-page">
+
+  <div class="ib-page-bg" aria-hidden="true"></div>
+  <div class="ib-page-overlay" aria-hidden="true"></div>
+
+  <div class="ib-page-inner">
+
+    <header class="ib-header">
+      <img
+        src="/Images/harvest-acres-logo%20(1).png"
+        alt="Harvest Acres"
+        class="ib-logo"
+        width="480"
+        height="480"
+      />
+      <p class="ib-eyebrow">Enterprise & Growth</p>
+      <h1 class="ib-title font-display">Innovative Business</h1>
+      <p class="ib-lead">
+        Harvest Acres runs a varied beverage enterprise — from fruit juices and purified mineral water
+        to cordials and ready-to-drink juices, with exciting expansion on the horizon.
+      </p>
+    </header>
+
+    <section class="ib-section" aria-labelledby="ib-overview-heading">
+      <div class="ib-card ib-card--featured">
+        <h2 id="ib-overview-heading" class="ib-card-title font-display">Our Enterprise</h2>
+        <p class="ib-card-text">
+          We are expanding our offerings to include sugarcane juice, flavoured and sparkling waters,
+          iced teas, herbal infusions, cordials, and ready-to-drink juices. With a robust retail and
+          wholesale network, we supply products to supermarkets, hotels, restaurants, corporate offices,
+          and directly to consumers across Zimbabwe.
+        </p>
+        <div class="ib-distribution">
+          @for (channel of distribution; track channel.title) {
+            <span class="ib-distribution-chip">
+              <lucide-icon [name]="channel.icon" class="ib-chip-icon"></lucide-icon>
+              {{ channel.title }}
+            </span>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="ib-section" aria-labelledby="ib-markets-heading">
+      <div class="ib-section-head">
+        <p class="ib-eyebrow">Target Market</p>
+        <h2 id="ib-markets-heading" class="ib-section-title font-display">Who We Serve</h2>
+        <p class="ib-section-desc">
+          A diverse, health-conscious customer base across homes, wellness, work, and hospitality.
+        </p>
+      </div>
+      <div class="ib-grid ib-grid--four">
+        @for (market of targetMarkets; track market.title) {
+          <article class="ib-card ib-card--compact">
+            <div class="ib-icon-wrap">
+              <lucide-icon [name]="market.icon" class="ib-icon"></lucide-icon>
+            </div>
+            <h3 class="ib-card-heading">{{ market.title }}</h3>
+            <p class="ib-card-text">{{ market.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="ib-section" aria-labelledby="ib-advantages-heading">
+      <div class="ib-section-head">
+        <p class="ib-eyebrow">Competitive Edge</p>
+        <h2 id="ib-advantages-heading" class="ib-section-title font-display">Why Harvest Acres</h2>
+        <p class="ib-section-desc">
+          Quality, sustainability, technology, and local sourcing at the heart of everything we do.
+        </p>
+      </div>
+      <div class="ib-grid ib-grid--four">
+        @for (item of advantages; track item.title) {
+          <article class="ib-card ib-card--compact">
+            <div class="ib-icon-wrap">
+              <lucide-icon [name]="item.icon" class="ib-icon"></lucide-icon>
+            </div>
+            <h3 class="ib-card-heading">{{ item.title }}</h3>
+            <p class="ib-card-text">{{ item.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="ib-section ib-section--pillars" aria-labelledby="ib-pillars-heading">
+      <div class="ib-section-head">
+        <p class="ib-eyebrow">Partnerships · Innovation · Careers</p>
+        <h2 id="ib-pillars-heading" class="ib-section-title font-display">Grow With Us</h2>
+      </div>
+      <div class="ib-pillars">
+        @for (pillar of pillars; track pillar.id) {
+          <article class="ib-card ib-pillar" [id]="pillar.id">
+            <div class="ib-pillar-head">
+              <div class="ib-icon-wrap">
+                <lucide-icon [name]="pillar.icon" class="ib-icon"></lucide-icon>
+              </div>
+              <div>
+                <p class="ib-eyebrow ib-eyebrow--inline">{{ pillar.eyebrow }}</p>
+                <h3 class="ib-pillar-title font-display">{{ pillar.title }}</h3>
+              </div>
+            </div>
+            <p class="ib-card-text">{{ pillar.description }}</p>
+            <ul class="ib-highlight-list">
+              @for (point of pillar.highlights; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+            @if (pillar.external) {
+              <a
+                [href]="pillar.ctaLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary ib-pillar-cta inline-flex group"
+              >
+                {{ pillar.ctaLabel }}
+                <lucide-icon name="arrow-right" class="ib-cta-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
+              </a>
+            } @else {
+              <a [routerLink]="pillar.ctaLink" class="btn-primary ib-pillar-cta inline-flex group">
+                {{ pillar.ctaLabel }}
+                <lucide-icon name="arrow-right" class="ib-cta-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
+              </a>
+            }
+          </article>
+        }
+      </div>
+    </section>
+
+  </div>
+</div>

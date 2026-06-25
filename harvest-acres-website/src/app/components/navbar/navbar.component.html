@@ -5,13 +5,15 @@
 >
   <div class="navbar-inner">
 
-    <!-- Logo -->
-    <a routerLink="/" class="navbar-brand" (click)="closeMenu()">
+    <!-- Logo + brand name -->
+    <a routerLink="/" class="navbar-brand" (click)="closeMenu()" aria-label="Harvest Acres — Home">
       <img
-        src="/images/harvest-acres-logo.png"
-        alt="Harvest Acres"
+        src="/Images/harvest-acres-logo%20(1).png"
+        alt=""
         class="navbar-logo"
+        aria-hidden="true"
       />
+      <span class="navbar-brand-text">Harvest Acres</span>
     </a>
 
     <!-- Desktop navigation -->
@@ -49,25 +51,11 @@
       >Products</a>
 
       <a
-        routerLink="/innovation"
+        routerLink="/innovative-business"
         routerLinkActive="is-active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="nav-link"
-      >Innovation</a>
-
-      <a
-        routerLink="/business"
-        routerLinkActive="is-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        class="nav-link"
-      >Business</a>
-
-      <a
-        routerLink="/careers"
-        routerLinkActive="is-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        class="nav-link"
-      >Careers</a>
+      >Innovative Business</a>
 
       <a
         routerLink="/contact"
@@ -76,11 +64,6 @@
         class="nav-link"
       >Contact</a>
     </nav>
-
-    <!-- Desktop CTA -->
-    <a routerLink="/contact" class="navbar-cta hidden lg:inline-flex">
-      Partner With Us
-    </a>
 
     <!-- Mobile toggle -->
     <button
@@ -105,11 +88,8 @@
       <a routerLink="/about#team" class="mobile-link mobile-link--sub" (click)="closeMenu()">Our Team</a>
       <a routerLink="/governance" class="mobile-link mobile-link--sub" (click)="closeMenu()">Corporate Governance</a>
       <a routerLink="/services" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Products</a>
-      <a routerLink="/innovation" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Innovation</a>
-      <a routerLink="/business" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Business</a>
-      <a routerLink="/careers" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Careers</a>
+      <a routerLink="/innovative-business" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Innovative Business</a>
       <a routerLink="/contact" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="mobile-link" (click)="closeMenu()">Contact</a>
-      <a routerLink="/contact" class="mobile-cta" (click)="closeMenu()">Partner With Us</a>
     </nav>
   </div>
 </header>

@@ -8,9 +8,9 @@
       <div class="space-y-3">
         <div class="flex items-center gap-3">
           <img 
-            src="/images/harvest-acres-logo.png"
+            src="/Images/harvest-acres-logo%20(1).png"
             alt="Harvest Acres Logo"
-            class="h-16 w-auto object-contain"
+            class="h-20 md:h-24 lg:h-28 w-auto max-w-full object-contain"
           />
         </div>
         <p class="text-sm text-amber-200 leading-relaxed">
@@ -87,16 +87,12 @@
     </div>
     
     <!-- Bottom Bar with Copyright -->
-    <div class="border-t border-amber-800 pt-6 mt-4 text-center">
+    <div class="border-t border-amber-800 pt-6 mt-4 flex flex-col items-center justify-center gap-4">
       <p class="text-xs text-amber-300">
-      <span id="currentYear"></span> Harvest Acres. All rights reserved.
+        {{ currentYear }} Harvest Acres. All rights reserved.
       </p>
+      <app-powered-by-guava tone="dark" />
     </div>
     
   </div>
 </footer>
-
-<script>
-  // Dynamic copyright year
-  document.getElementById('currentYear').innerHTML = new Date().getFullYear();
-</script>

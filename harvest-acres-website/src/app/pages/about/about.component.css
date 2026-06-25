@@ -1,0 +1,59 @@
+.about-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #16a34a;
+  margin-bottom: 0.6rem;
+}
+
+.advantage-card {
+  padding: 1.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.advantage-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(22, 163, 74, 0.25);
+  box-shadow: 0 14px 32px rgba(92, 69, 34, 0.08);
+}
+
+.advantage-icon-wrap {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(22, 163, 74, 0.12) 0%, rgba(132, 204, 22, 0.08) 100%);
+  border-radius: 16px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advantage-card:hover .advantage-icon-wrap {
+  background: linear-gradient(145deg, rgba(22, 163, 74, 0.2) 0%, rgba(132, 204, 22, 0.14) 100%);
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.15);
+}
+
+.advantage-icon {
+  width: 26px;
+  height: 26px;
+  color: #15803d;
+}
+
+.advantage-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #5c4522;
+  margin-bottom: 0.5rem;
+}
+
+.advantage-card p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.65;
+}

@@ -1,14 +1,168 @@
-<app-page-wrapper>
-  <div class="text-center max-w-2xl mx-auto py-12">
-    <p class="text-sm font-semibold uppercase tracking-widest text-accent mb-3">Contact</p>
-    <h1 class="font-display text-4xl font-bold text-harvest-brown mb-4">Let&rsquo;s Connect</h1>
-    <p class="text-gray-600 leading-relaxed mb-8">
-      Reach out for wholesale inquiries, partnerships, or product availability.
-    </p>
-    <div class="space-y-3 text-gray-700">
-      <p>hello&#64;harvestacres.co.zw</p>
-      <p>+263 24 123 4567</p>
-      <p>123 Harvest Lane, Harare, Zimbabwe</p>
+<div class="contact-page">
+
+  <div class="contact-page-bg" aria-hidden="true"></div>
+  <div class="contact-page-overlay" aria-hidden="true"></div>
+
+  <div class="contact-page-inner">
+
+    <header class="contact-header">
+      <img
+        src="/Images/harvest-acres-logo%20(1).png"
+        alt="Harvest Acres"
+        class="contact-logo"
+        width="480"
+        height="480"
+      />
+      <p class="contact-eyebrow">Get in Touch</p>
+      <h1 class="contact-title font-display">Contact Us</h1>
+      <p class="contact-lead">
+        Wholesale inquiries, partnerships, product availability — we&rsquo;d love to hear from you.
+      </p>
+    </header>
+
+    <div class="contact-grid">
+
+      <section class="contact-form-card" aria-labelledby="contact-form-heading">
+        <h2 id="contact-form-heading" class="contact-card-title">Send a Message</h2>
+
+        @if (submitted) {
+          <div class="contact-success" role="status">
+            <lucide-icon name="heart" class="contact-success-icon"></lucide-icon>
+            <p class="contact-success-title">Thank you for reaching out!</p>
+            <p class="contact-success-text">
+              We&rsquo;ve received your message and will get back to you shortly.
+            </p>
+            <button type="button" class="btn-primary contact-reset-btn" (click)="resetForm()">
+              Send Another Message
+            </button>
+          </div>
+        } @else {
+          <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
+            <div class="contact-field">
+              <label for="contact-name">Full Name <span class="contact-required">*</span></label>
+              <input
+                id="contact-name"
+                type="text"
+                name="name"
+                [(ngModel)]="form.name"
+                required
+                autocomplete="name"
+                placeholder="Your full name"
+              />
+            </div>
+
+            <div class="contact-field-row">
+              <div class="contact-field">
+                <label for="contact-email">Email <span class="contact-required">*</span></label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  name="email"
+                  [(ngModel)]="form.email"
+                  required
+                  email
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-phone">Phone</label>
+                <input
+                  id="contact-phone"
+                  type="tel"
+                  name="phone"
+                  [(ngModel)]="form.phone"
+                  autocomplete="tel"
+                  placeholder="+263 ..."
+                />
+              </div>
+            </div>
+
+            <div class="contact-field">
+              <label for="contact-subject">Inquiry Type <span class="contact-required">*</span></label>
+              <select
+                id="contact-subject"
+                name="subject"
+                [(ngModel)]="form.subject"
+                required
+              >
+                @for (option of inquiryTypes; track option) {
+                  <option [value]="option">{{ option }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="contact-field">
+              <label for="contact-message">Message <span class="contact-required">*</span></label>
+              <textarea
+                id="contact-message"
+                name="message"
+                [(ngModel)]="form.message"
+                required
+                rows="5"
+                placeholder="Tell us how we can help..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="btn-primary contact-submit-btn"
+              [disabled]="contactForm.invalid"
+            >
+              Send Message
+              <lucide-icon name="arrow-right" class="contact-submit-icon"></lucide-icon>
+            </button>
+          </form>
+        }
+      </section>
+
+      <aside class="contact-info-card" aria-label="Contact details">
+        <h2 class="contact-card-title">Reach Us Directly</h2>
+
+        <ul class="contact-info-list">
+          <li class="contact-info-item">
+            <span class="contact-info-icon-wrap">
+              <lucide-icon name="mail" class="contact-info-icon"></lucide-icon>
+            </span>
+            <div>
+              <p class="contact-info-label">Email</p>
+              <a href="mailto:hello&#64;harvestacres.co.zw" class="contact-info-value">
+                hello&#64;harvestacres.co.zw
+              </a>
+            </div>
+          </li>
+
+          <li class="contact-info-item">
+            <span class="contact-info-icon-wrap">
+              <lucide-icon name="phone" class="contact-info-icon"></lucide-icon>
+            </span>
+            <div>
+              <p class="contact-info-label">Phone</p>
+              <a href="tel:+263241234567" class="contact-info-value">+263 24 123 4567</a>
+            </div>
+          </li>
+
+          <li class="contact-info-item">
+            <span class="contact-info-icon-wrap">
+              <lucide-icon name="map-pin" class="contact-info-icon"></lucide-icon>
+            </span>
+            <div>
+              <p class="contact-info-label">Address</p>
+              <p class="contact-info-value">123 Harvest Lane, Harare, Zimbabwe</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="contact-info-note">
+          <p>
+            Prefer to partner with us on distribution or retail?
+            Select <strong>Partnership / Wholesale</strong> in the form and our team will follow up.
+          </p>
+        </div>
+      </aside>
+
     </div>
+
   </div>
-</app-page-wrapper>
+</div>

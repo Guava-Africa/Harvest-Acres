@@ -94,6 +94,37 @@
 
   </section>
 
+  <!-- COMPETITIVE ADVANTAGE -->
+  <section class="py-16 bg-green-50" id="advantage">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="text-center mb-10">
+        <p class="about-eyebrow">Why Harvest Acres</p>
+        <h2 class="text-2xl md:text-3xl font-semibold text-[#5C4522] font-display tracking-tight">
+          Our Competitive Advantage
+        </h2>
+        <p class="text-gray-600 mt-3 max-w-2xl mx-auto text-sm md:text-base">
+          What sets us apart in Zimbabwe&rsquo;s beverage market — from farm partnerships to smart refreshment solutions.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        @for (item of advantages; track item.title) {
+          <div class="advantage-card">
+            <div class="advantage-icon-wrap">
+              <lucide-icon [name]="item.icon" class="advantage-icon"></lucide-icon>
+            </div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
+        }
+      </div>
+
+    </div>
+
+  </section>
+
   <!-- OPERATIONS -->
   <section class="py-16 bg-green-50">
 

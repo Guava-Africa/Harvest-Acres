@@ -17,6 +17,10 @@ module.exports = {
         accent: '#16a34a',
         light: '#F9FAF7',
         dark: '#2E1F1A',
+        guava: {
+          orange: '#F47920',
+          green: '#5AB031',
+        },
       },
       fontFamily: {
         sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
