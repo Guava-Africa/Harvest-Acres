@@ -1,10 +1,96 @@
-<app-page-wrapper>
-  <div class="text-center max-w-2xl mx-auto py-12">
-    <p class="text-sm font-semibold uppercase tracking-widest text-accent mb-3">Governance</p>
-    <h1 class="font-display text-4xl font-bold text-harvest-brown mb-4">Corporate Governance</h1>
-    <p class="text-gray-600 leading-relaxed">
-      Harvest Acres is committed to transparency, ethical operations, and responsible growth
-      across our supply chain.
-    </p>
+<div class="gv-page">
+
+  <div class="gv-page-bg" aria-hidden="true"></div>
+  <div class="gv-page-overlay" aria-hidden="true"></div>
+
+  <div class="gv-page-inner">
+
+    <header class="gv-header gv-reveal">
+      <img
+        src="/Images/harvest-acres-logo%20(1).png"
+        alt="Harvest Acres"
+        class="gv-logo"
+        width="480"
+        height="480"
+      />
+      <p class="gv-eyebrow">Governance</p>
+      <h1 class="gv-title font-display">Corporate Governance</h1>
+      <p class="gv-lead">
+        Harvest Acres is committed to transparency, ethical operations, and responsible growth
+        across our supply chain — from farm partnerships to every bottle we deliver.
+      </p>
+    </header>
+
+    <section class="gv-section" aria-labelledby="gv-commitment-heading">
+      <article class="gv-card gv-intro gv-reveal">
+        <p class="gv-eyebrow">Our Commitment</p>
+        <h2 id="gv-commitment-heading" class="gv-section-title font-display">
+          Responsible Leadership in Beverage Production
+        </h2>
+        <p class="gv-body-text">
+          Strong corporate governance is the foundation of trust with our customers, partners, farmers,
+          and employees. We hold ourselves accountable to high standards in food safety, environmental
+          responsibility, and ethical business conduct.
+        </p>
+        <p class="gv-body-text">
+          Our governance framework supports sustainable growth as we expand product lines, distribution
+          channels, and manufacturing capacity — ensuring that quality and integrity remain at the centre
+          of every decision.
+        </p>
+      </article>
+    </section>
+
+    <section class="gv-section" aria-labelledby="gv-pillars-heading">
+      <div class="gv-section-head gv-reveal">
+        <p class="gv-eyebrow">Framework</p>
+        <h2 id="gv-pillars-heading" class="gv-section-title font-display">Governance Pillars</h2>
+        <p class="gv-section-desc">
+          Six areas that guide how Harvest Acres operates, grows, and serves Zimbabwe.
+        </p>
+      </div>
+
+      <div class="gv-pillars-grid">
+        @for (pillar of pillars; track pillar.title; let i = $index) {
+          <article class="gv-card gv-pillar-card gv-reveal" [style.transition-delay.ms]="60 + i * 55">
+            <span class="gv-icon-wrap">
+              <lucide-icon [name]="pillar.icon" class="gv-icon"></lucide-icon>
+            </span>
+            <h3 class="gv-pillar-title">{{ pillar.title }}</h3>
+            <p class="gv-pillar-desc">{{ pillar.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="gv-section" aria-labelledby="gv-policies-heading">
+      <div class="gv-section-head gv-reveal">
+        <p class="gv-eyebrow">Standards</p>
+        <h2 id="gv-policies-heading" class="gv-section-title font-display">Policies &amp; Standards</h2>
+      </div>
+
+      <div class="gv-policies-list">
+        @for (policy of policies; track policy.title; let i = $index) {
+          <article class="gv-policy-row gv-reveal" [style.transition-delay.ms]="50 + i * 50">
+            <h3 class="gv-policy-title">{{ policy.title }}</h3>
+            <p class="gv-policy-desc">{{ policy.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="gv-cta gv-reveal" aria-labelledby="gv-cta-heading">
+      <h2 id="gv-cta-heading" class="gv-cta-title font-display">Questions About Governance?</h2>
+      <p class="gv-cta-text">
+        Learn more about our leadership team or reach out to discuss partnerships and compliance.
+      </p>
+      <div class="gv-cta-actions">
+        <a routerLink="/about#team" class="btn-primary gv-cta-btn inline-flex group">
+          Meet Our Team
+          <lucide-icon name="arrow-right" class="gv-cta-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
+        </a>
+        <a routerLink="/contact" class="gv-cta-btn-secondary">Contact Us</a>
+      </div>
+    </section>
+
   </div>
-</app-page-wrapper>
+</div>

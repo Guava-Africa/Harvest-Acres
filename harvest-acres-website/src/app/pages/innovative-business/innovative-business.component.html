@@ -21,65 +21,127 @@
       </p>
     </header>
 
-    <section class="ib-section" aria-labelledby="ib-overview-heading">
-      <div class="ib-card ib-card--featured">
+    <section class="ib-section ib-section--enterprise" aria-labelledby="ib-overview-heading">
+      <div class="ib-card ib-card--featured ib-enterprise-intro ib-reveal">
+        <p class="ib-eyebrow">Distribution Network</p>
         <h2 id="ib-overview-heading" class="ib-card-title font-display">Our Enterprise</h2>
         <p class="ib-card-text">
-          We are expanding our offerings to include sugarcane juice, flavoured and sparkling waters,
-          iced teas, herbal infusions, cordials, and ready-to-drink juices. With a robust retail and
-          wholesale network, we supply products to supermarkets, hotels, restaurants, corporate offices,
-          and directly to consumers across Zimbabwe.
+          Harvest Acres runs a varied beverage enterprise — from purified mineral water and fruit juices
+          to cordials and ready-to-drink Tamba blends. We are actively expanding into sugarcane juice,
+          flavoured and sparkling waters, iced teas, herbal infusions, and new ready-to-drink formats.
         </p>
-        <div class="ib-distribution">
-          @for (channel of distribution; track channel.title) {
-            <span class="ib-distribution-chip">
-              <lucide-icon [name]="channel.icon" class="ib-chip-icon"></lucide-icon>
-              {{ channel.title }}
-            </span>
+        <p class="ib-card-text ib-card-text--secondary">
+          Backed by a robust retail and wholesale network, we reach customers through supermarkets,
+          hospitality venues, corporate supply, and direct delivery — proudly serving Zimbabwe with
+          naturally inspired beverages at scale.
+        </p>
+      </div>
+
+      <div class="ib-enterprise-carousel">
+        <p class="ib-enterprise-carousel-label ib-reveal" [style.transition-delay.ms]="80">How We Reach You</p>
+
+        <div class="ib-enterprise-track" aria-label="Distribution channels">
+          @for (channel of distribution; track channel.title; let i = $index) {
+            <article
+              class="ib-card ib-enterprise-card ib-reveal"
+              [style.transition-delay.ms]="140 + i * 90"
+            >
+              <div class="ib-enterprise-img-wrap">
+                <img
+                  [src]="channel.image"
+                  [alt]="channel.imageAlt"
+                  class="ib-enterprise-img"
+                  loading="lazy"
+                  width="640"
+                  height="420"
+                />
+              </div>
+              <div class="ib-enterprise-card-body">
+                <div class="ib-enterprise-card-head">
+                  <span class="ib-icon-wrap ib-icon-wrap--sm">
+                    <lucide-icon [name]="channel.icon" class="ib-icon"></lucide-icon>
+                  </span>
+                  <h3 class="ib-card-heading">{{ channel.title }}</h3>
+                </div>
+                <p class="ib-card-text">{{ channel.description }}</p>
+              </div>
+            </article>
           }
         </div>
       </div>
     </section>
 
-    <section class="ib-section" aria-labelledby="ib-markets-heading">
-      <div class="ib-section-head">
+    <section class="ib-section ib-section--markets" aria-labelledby="ib-markets-heading">
+      <div class="ib-section-head ib-reveal">
         <p class="ib-eyebrow">Target Market</p>
         <h2 id="ib-markets-heading" class="ib-section-title font-display">Who We Serve</h2>
         <p class="ib-section-desc">
           A diverse, health-conscious customer base across homes, wellness, work, and hospitality.
         </p>
       </div>
-      <div class="ib-grid ib-grid--four">
-        @for (market of targetMarkets; track market.title) {
-          <article class="ib-card ib-card--compact">
-            <div class="ib-icon-wrap">
-              <lucide-icon [name]="market.icon" class="ib-icon"></lucide-icon>
+      <div class="ib-audience-list" role="list">
+        @for (market of targetMarkets; track market.title; let i = $index) {
+          <article
+            class="ib-audience-row ib-reveal"
+            role="listitem"
+            [style.transition-delay.ms]="80 + i * 70"
+          >
+            <div class="ib-audience-row-main">
+              <span class="ib-icon-wrap ib-icon-wrap--row">
+                <lucide-icon [name]="market.icon" class="ib-icon"></lucide-icon>
+              </span>
+              <div class="ib-audience-copy">
+                <h3 class="ib-audience-title">{{ market.title }}</h3>
+                <p class="ib-audience-desc">{{ market.description }}</p>
+              </div>
             </div>
-            <h3 class="ib-card-heading">{{ market.title }}</h3>
-            <p class="ib-card-text">{{ market.description }}</p>
+            <div class="ib-market-tags" aria-label="Audience tags">
+              @for (tag of market.tags; track tag) {
+                <span class="ib-market-tag">{{ tag }}</span>
+              }
+            </div>
           </article>
         }
       </div>
     </section>
 
-    <section class="ib-section" aria-labelledby="ib-advantages-heading">
-      <div class="ib-section-head">
+    <section class="ib-section ib-section--edge" aria-labelledby="ib-advantages-heading">
+      <div class="ib-section-head ib-reveal">
         <p class="ib-eyebrow">Competitive Edge</p>
         <h2 id="ib-advantages-heading" class="ib-section-title font-display">Why Harvest Acres</h2>
         <p class="ib-section-desc">
           Quality, sustainability, technology, and local sourcing at the heart of everything we do.
         </p>
       </div>
-      <div class="ib-grid ib-grid--four">
-        @for (item of advantages; track item.title) {
-          <article class="ib-card ib-card--compact">
-            <div class="ib-icon-wrap">
-              <lucide-icon [name]="item.icon" class="ib-icon"></lucide-icon>
-            </div>
-            <h3 class="ib-card-heading">{{ item.title }}</h3>
-            <p class="ib-card-text">{{ item.description }}</p>
-          </article>
-        }
+      <div class="ib-edge-mosaic">
+        <div class="ib-edge-row ib-edge-row--featured">
+          @for (item of featuredAdvantages; track item.title; let i = $index) {
+            <article
+              class="ib-edge-tile ib-edge-tile--featured ib-reveal"
+              [style.transition-delay.ms]="80 + i * 90"
+            >
+              <span class="ib-icon-wrap ib-icon-wrap--row">
+                <lucide-icon [name]="item.icon" class="ib-icon"></lucide-icon>
+              </span>
+              <h3 class="ib-edge-title">{{ item.title }}</h3>
+              <p class="ib-edge-desc">{{ item.description }}</p>
+            </article>
+          }
+        </div>
+        <div class="ib-edge-row ib-edge-row--secondary">
+          @for (item of secondaryAdvantages; track item.title; let i = $index) {
+            <article
+              class="ib-edge-tile ib-edge-tile--compact ib-reveal"
+              [style.transition-delay.ms]="260 + i * 90"
+            >
+              <span class="ib-icon-wrap ib-icon-wrap--row">
+                <lucide-icon [name]="item.icon" class="ib-icon"></lucide-icon>
+              </span>
+              <h3 class="ib-edge-title">{{ item.title }}</h3>
+              <p class="ib-edge-desc">{{ item.description }}</p>
+            </article>
+          }
+        </div>
       </div>
     </section>
 
@@ -90,38 +152,73 @@
       </div>
       <div class="ib-pillars">
         @for (pillar of pillars; track pillar.id) {
-          <article class="ib-card ib-pillar" [id]="pillar.id">
-            <div class="ib-pillar-head">
-              <div class="ib-icon-wrap">
-                <lucide-icon [name]="pillar.icon" class="ib-icon"></lucide-icon>
+          <article class="ib-card ib-pillar" [class.ib-pillar--visual]="pillar.image" [id]="pillar.id">
+            @if (pillar.image) {
+              <div class="ib-pillar-img-wrap">
+                <img
+                  [src]="pillar.image"
+                  [alt]="pillar.imageAlt ?? ''"
+                  class="ib-pillar-img"
+                  loading="lazy"
+                  width="640"
+                  height="360"
+                />
               </div>
-              <div>
-                <p class="ib-eyebrow ib-eyebrow--inline">{{ pillar.eyebrow }}</p>
-                <h3 class="ib-pillar-title font-display">{{ pillar.title }}</h3>
-              </div>
-            </div>
-            <p class="ib-card-text">{{ pillar.description }}</p>
-            <ul class="ib-highlight-list">
-              @for (point of pillar.highlights; track point) {
-                <li>{{ point }}</li>
-              }
-            </ul>
-            @if (pillar.external) {
-              <a
-                [href]="pillar.ctaLink"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-primary ib-pillar-cta inline-flex group"
-              >
-                {{ pillar.ctaLabel }}
-                <lucide-icon name="arrow-right" class="ib-cta-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
-              </a>
-            } @else {
-              <a [routerLink]="pillar.ctaLink" class="btn-primary ib-pillar-cta inline-flex group">
-                {{ pillar.ctaLabel }}
-                <lucide-icon name="arrow-right" class="ib-cta-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
-              </a>
             }
+            <div class="ib-pillar-body">
+              <div class="ib-pillar-head">
+                <div class="ib-icon-wrap">
+                  <lucide-icon [name]="pillar.icon" class="ib-icon"></lucide-icon>
+                </div>
+                <div>
+                  <p class="ib-eyebrow ib-eyebrow--inline">{{ pillar.eyebrow }}</p>
+                  <h3 class="ib-pillar-title font-display">{{ pillar.title }}</h3>
+                </div>
+              </div>
+              <p class="ib-card-text">{{ pillar.description }}</p>
+              <ul class="ib-highlight-list">
+                @for (point of pillar.highlights; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+              @if (pillar.platform) {
+                <div class="ib-pillar-platform">
+                  <p class="ib-pillar-platform-label">Recruitment &amp; HR platform</p>
+                  <a
+                    [href]="pillar.ctaLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="ib-pillar-platform-brand"
+                  >
+                    <img
+                      [src]="pillar.platform.logo"
+                      [alt]="pillar.platform.logoAlt"
+                      class="ib-pillar-platform-logo"
+                      width="220"
+                      height="72"
+                      loading="lazy"
+                    />
+                  </a>
+                  <p class="ib-pillar-platform-desc">{{ pillar.platform.description }}</p>
+                </div>
+              }
+              @if (pillar.external) {
+                <a
+                  [href]="pillar.ctaLink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary ib-pillar-cta inline-flex group"
+                >
+                  {{ pillar.ctaLabel }}
+                  <lucide-icon name="arrow-right" class="ib-cta-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
+                </a>
+              } @else {
+                <a [routerLink]="pillar.ctaLink" class="btn-primary ib-pillar-cta inline-flex group">
+                  {{ pillar.ctaLabel }}
+                  <lucide-icon name="arrow-right" class="ib-cta-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
+                </a>
+              }
+            </div>
           </article>
         }
       </div>

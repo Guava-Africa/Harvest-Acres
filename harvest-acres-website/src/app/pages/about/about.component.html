@@ -1,205 +1,240 @@
-<app-page-wrapper>
+<div class="ab-page">
 
-  <!-- HERO -->
-  <section class="hero-section hero-about py-20 px-6 text-center">
+  <div class="ab-page-bg" aria-hidden="true"></div>
+  <div class="ab-page-overlay" aria-hidden="true"></div>
 
-    <div class="max-w-4xl mx-auto">
+  <div class="ab-page-inner">
 
-      <!-- LOGO -->
-      <div class="flex justify-center mb-6">
-        <img 
-          src="/images/harvest-acres-logo.png"
-          alt="Harvest Acres Logo"
-          class="w-48 md:w-64 object-contain"
-        />
-      </div>
-
-      <h1 class="text-4xl md:text-5xl font-bold text-[#5C4522] mb-6">
-        About Harvest Acres
-      </h1>
-
-      <p class="text-gray-700 leading-relaxed text-sm md:text-base">
-        Harvest Acres is a proudly Zimbabwean beverage company dedicated to producing
-        high-quality, natural drinks while empowering local farmers and championing
-        sustainability.
+    <header class="ab-header ab-reveal">
+      <img
+        src="/Images/harvest-acres-logo%20(1).png"
+        alt="Harvest Acres"
+        class="ab-logo"
+        width="480"
+        height="480"
+      />
+      <p class="ab-eyebrow">Our Story</p>
+      <h1 class="ab-title font-display">About Harvest Acres</h1>
+      <p class="ab-lead">
+        Building excellence through quality, integrity, and innovation since 1985.
       </p>
+    </header>
 
-    </div>
+    <!-- Company Overview -->
+    <section class="ab-section" aria-labelledby="ab-overview-heading">
+      <div class="ab-overview ab-reveal">
+        <div class="ab-overview-copy">
+          <p class="ab-eyebrow">Company Overview</p>
+          <h2 id="ab-overview-heading" class="ab-section-title font-display">
+            A Proudly Zimbabwean Beverage Enterprise
+          </h2>
+          <p class="ab-body-text">
+            Harvest Acres runs a varied beverage enterprise — currently featuring products like fruit
+            juices and purified mineral water, with offerings expanding to include sugarcane juice,
+            flavoured and sparkling waters, iced teas, herbal infusions, cordials, and ready-to-drink
+            juices.
+          </p>
+          <p class="ab-body-text">
+            With a robust retail and wholesale network, we supply supermarkets, hotels, restaurants,
+            corporate offices, and consumers directly — crafting health-focused beverages free from
+            artificial colours, preservatives, and sweeteners, with locally sourced ingredients
+            supporting Zimbabwean farmers.
+          </p>
+        </div>
+        <div class="ab-overview-visual">
+          <img
+            src="/Images/Product%20line%20up.png"
+            alt="Harvest Acres product lineup — mineral water, cordials, and fruit drinks"
+            class="ab-overview-img"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+        </div>
+      </div>
+    </section>
 
-  </section>
+    <!-- Vision & Mission -->
+    <section class="ab-section" aria-labelledby="ab-vision-heading">
+      <div class="ab-vision-grid">
+        <article class="ab-card ab-vision-card ab-reveal">
+          <p class="ab-eyebrow">Vision Statement</p>
+          <h2 id="ab-vision-heading" class="ab-card-title font-display">Our Vision</h2>
+          <p class="ab-body-text">
+            To be Zimbabwe&rsquo;s leading provider of accessible, health-conscious beverages — blending
+            innovation, quality, and sustainability to refresh the nation.
+          </p>
+        </article>
+        <article class="ab-card ab-mission-card ab-reveal" [style.transition-delay.ms]="90">
+          <p class="ab-eyebrow">Mission Statement</p>
+          <h2 class="ab-card-title font-display">Our Mission</h2>
+          <blockquote class="ab-mission-quote">
+            <p>
+              &ldquo;To craft and distribute a diverse range of refreshing beverages — from purified water
+              and fruit-based drinks using natural juices, concentrates, and powders — while promoting
+              healthy lifestyles, empowering local partnerships, and championing sustainable practices.&rdquo;
+            </p>
+          </blockquote>
+        </article>
+      </div>
+    </section>
 
-  <!-- VISION & MISSION -->
-  <section class="py-16 bg-green-50">
-
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
-
-      <div class="premium-card">
-        <h2 class="section-title">Our Vision</h2>
-        <p>
-          To be Zimbabwe’s leading provider of natural and innovative beverage solutions,
-          delivering freshness, health, and sustainability across Africa.
+    <!-- Leadership Team -->
+    <section class="ab-section" id="team" aria-labelledby="ab-leadership-heading">
+      <div class="ab-section-head ab-reveal">
+        <p class="ab-eyebrow">Leadership</p>
+        <h2 id="ab-leadership-heading" class="ab-section-title font-display">Leadership Team</h2>
+        <p class="ab-section-desc">
+          Organisational structure as outlined in the Harvest Acres company profile.
         </p>
       </div>
 
-      <div class="premium-card">
-        <h2 class="section-title">Our Mission</h2>
-        <p>
-          To craft high-quality beverages that nourish communities while promoting
-          sustainability, innovation, and economic empowerment through local sourcing.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CORE VALUES -->
-  <section class="py-16">
-
-    <div class="max-w-6xl mx-auto px-6 text-center">
-
-      <h2 class="text-2xl font-semibold text-[#5C4522] mb-10">
-        Our Core Values
-      </h2>
-
-      <div class="grid md:grid-cols-4 gap-6">
-
-        <div class="card">
-          <lucide-icon name="award" class="icon"></lucide-icon>
-          <h3>Quality First</h3>
-          <p>We prioritize excellence in every product we deliver.</p>
-        </div>
-
-        <div class="card">
-          <lucide-icon name="leaf" class="icon"></lucide-icon>
-          <h3>Sustainability</h3>
-          <p>We are committed to environmentally responsible practices.</p>
-        </div>
-
-        <div class="card">
-          <lucide-icon name="lightbulb" class="icon"></lucide-icon>
-          <h3>Innovation</h3>
-          <p>We continuously evolve to meet modern consumer needs.</p>
-        </div>
-
-        <div class="card">
-          <lucide-icon name="users" class="icon"></lucide-icon>
-          <h3>Community</h3>
-          <p>We support and uplift local farmers and communities.</p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- COMPETITIVE ADVANTAGE -->
-  <section class="py-16 bg-green-50" id="advantage">
-
-    <div class="max-w-6xl mx-auto px-6">
-
-      <div class="text-center mb-10">
-        <p class="about-eyebrow">Why Harvest Acres</p>
-        <h2 class="text-2xl md:text-3xl font-semibold text-[#5C4522] font-display tracking-tight">
-          Our Competitive Advantage
-        </h2>
-        <p class="text-gray-600 mt-3 max-w-2xl mx-auto text-sm md:text-base">
-          What sets us apart in Zimbabwe&rsquo;s beverage market — from farm partnerships to smart refreshment solutions.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-        @for (item of advantages; track item.title) {
-          <div class="advantage-card">
-            <div class="advantage-icon-wrap">
-              <lucide-icon [name]="item.icon" class="advantage-icon"></lucide-icon>
+      <div class="ab-org">
+        <article class="ab-card ab-chairman-card ab-reveal">
+          <div class="ab-chairman-layout">
+            @if (chairman.photo) {
+              <div class="ab-chairman-visual">
+                <img
+                  [src]="chairman.photo"
+                  [alt]="chairman.photoAlt ?? chairman.title"
+                  class="ab-chairman-img"
+                  loading="lazy"
+                  width="640"
+                  height="480"
+                />
+              </div>
+            } @else {
+              <div class="ab-photo-placeholder ab-photo-placeholder--chairman" aria-label="Chairman photo placeholder">
+                <lucide-icon name="user" class="ab-photo-placeholder-icon"></lucide-icon>
+                <span class="ab-photo-placeholder-label">Photo coming soon</span>
+              </div>
+            }
+            <div class="ab-chairman-body">
+              <h3 class="ab-chairman-title">{{ chairman.title }}</h3>
+              <p class="ab-team-focus">{{ chairman.focus }}</p>
+              <blockquote class="ab-chairman-quote">
+                <p>&ldquo;{{ chairmanQuote }}&rdquo;</p>
+              </blockquote>
+              <p class="ab-team-bio">{{ chairman.bio }}</p>
             </div>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
           </div>
+        </article>
+
+        <div class="ab-org-connector ab-reveal" aria-hidden="true">
+          <span class="ab-org-line"></span>
+        </div>
+
+        <article class="ab-card ab-gm-card ab-reveal">
+          <div class="ab-gm-inner">
+            @if (generalManager.photo) {
+              <img
+                [src]="generalManager.photo"
+                [alt]="generalManager.photoAlt ?? generalManager.title"
+                class="ab-leader-photo ab-leader-photo--gm"
+                loading="lazy"
+                width="320"
+                height="320"
+              />
+            } @else {
+              <div class="ab-photo-placeholder ab-photo-placeholder--gm" aria-label="General Manager photo placeholder">
+                <lucide-icon name="user" class="ab-photo-placeholder-icon"></lucide-icon>
+                <span class="ab-photo-placeholder-label">Photo coming soon</span>
+              </div>
+            }
+            <div>
+              <h3 class="ab-gm-title">{{ generalManager.title }}</h3>
+              <p class="ab-team-focus">{{ generalManager.focus }}</p>
+              <p class="ab-team-bio">{{ generalManager.bio }}</p>
+            </div>
+          </div>
+        </article>
+
+        <div class="ab-org-connector ab-org-connector--branch ab-reveal" aria-hidden="true">
+          <span class="ab-org-line"></span>
+          <span class="ab-org-branch"></span>
+        </div>
+
+        <div class="ab-dept-grid">
+          @for (manager of departmentManagers; track manager.title; let i = $index) {
+            <article class="ab-card ab-team-card ab-reveal" [style.transition-delay.ms]="80 + i * 70">
+              @if (manager.photo) {
+                <img
+                  [src]="manager.photo"
+                  [alt]="manager.photoAlt ?? manager.title"
+                  class="ab-leader-photo ab-leader-photo--card"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+              } @else {
+                <div class="ab-photo-placeholder ab-photo-placeholder--card" [attr.aria-label]="manager.title + ' photo placeholder'">
+                  <lucide-icon name="user" class="ab-photo-placeholder-icon"></lucide-icon>
+                  <span class="ab-photo-placeholder-label">Photo coming soon</span>
+                </div>
+              }
+              <div class="ab-team-card-body">
+                <h3 class="ab-team-role">{{ manager.title }}</h3>
+                <p class="ab-team-focus">{{ manager.focus }}</p>
+                <p class="ab-team-bio">{{ manager.bio }}</p>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="ab-section" aria-labelledby="ab-values-heading">
+      <div class="ab-section-head ab-reveal">
+        <p class="ab-eyebrow">What Guides Us</p>
+        <h2 id="ab-values-heading" class="ab-section-title font-display">Our Core Values</h2>
+      </div>
+
+      <div class="ab-values-grid">
+        @for (value of coreValues; track value.title; let i = $index) {
+          <article class="ab-card ab-value-card ab-reveal" [style.transition-delay.ms]="60 + i * 60">
+            <span class="ab-icon-wrap">
+              <lucide-icon [name]="value.icon" class="ab-icon"></lucide-icon>
+            </span>
+            <h3 class="ab-value-title">{{ value.title }}</h3>
+            <p class="ab-value-desc">{{ value.description }}</p>
+          </article>
         }
       </div>
+    </section>
 
-    </div>
-
-  </section>
-
-  <!-- OPERATIONS -->
-  <section class="py-16 bg-green-50">
-
-    <div class="max-w-6xl mx-auto px-6 text-center">
-
-      <h2 class="text-2xl font-semibold text-[#5C4522] mb-10">
-        Operations & Manufacturing
-      </h2>
-
-      <div class="grid md:grid-cols-2 gap-8 text-left">
-
-        <div class="premium-card">
-          <lucide-icon name="map-pin" class="icon"></lucide-icon>
-          <h3>Headquarters</h3>
-          <p>Harare, Zimbabwe</p>
-        </div>
-
-        <div class="premium-card">
-          <lucide-icon name="factory" class="icon"></lucide-icon>
-          <h3>Production Facility</h3>
-          <p>Located in Harare with advanced beverage processing systems</p>
-        </div>
-
-        <div class="premium-card">
-          <lucide-icon name="trending-up" class="icon"></lucide-icon>
-          <h3>Production Capacity</h3>
-          <p>1,500 litres daily (≈ 45,000 litres monthly)</p>
-        </div>
-
-        <div class="premium-card">
-          <lucide-icon name="shield-check" class="icon"></lucide-icon>
-          <h3>Quality Assurance</h3>
-          <p>Strict hygiene, safety, and quality control standards</p>
-        </div>
-
+    <!-- Operations -->
+    <section class="ab-section" aria-labelledby="ab-ops-heading">
+      <div class="ab-section-head ab-reveal">
+        <p class="ab-eyebrow">How We Operate</p>
+        <h2 id="ab-ops-heading" class="ab-section-title font-display">Operations &amp; Manufacturing</h2>
       </div>
 
-    </div>
-
-  </section>
-
-  <!-- FUTURE PLANS (UPDATED WITH IMAGE) -->
-  <section class="py-16">
-
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-
-      <!-- TEXT -->
-      <div>
-
-        <h2 class="text-2xl font-semibold text-[#5C4522] mb-6">
-          Future Growth Plans
-        </h2>
-
-        <div class="premium-card text-left">
-          <ul class="space-y-4">
-            <li>• Nationwide and regional expansion</li>
-            <li>• Wellness-focused beverages</li>
-            <li>• Stronger brand positioning</li>
-            <li>• Smart and sustainable scaling</li>
-          </ul>
-        </div>
-
+      <div class="ab-ops-grid">
+        @for (fact of operations; track fact.title; let i = $index) {
+          <article class="ab-card ab-ops-card ab-reveal" [style.transition-delay.ms]="70 + i * 60">
+            <span class="ab-icon-wrap">
+              <lucide-icon [name]="fact.icon" class="ab-icon"></lucide-icon>
+            </span>
+            <h3 class="ab-ops-title">{{ fact.title }}</h3>
+            <p class="ab-ops-detail">{{ fact.detail }}</p>
+          </article>
+        }
       </div>
+    </section>
 
-      <!-- IMAGE -->
-      <div class="flex justify-center">
-        <img 
-          src="/images/futureplansHarvestacres.png"
-          alt="Future Plans Harvest Acres"
-          class="rounded-2xl shadow-xl w-full max-w-md md:max-w-full object-cover"
-        />
-      </div>
+    <!-- CTA -->
+    <section class="ab-cta ab-reveal" aria-labelledby="ab-cta-heading">
+      <h2 id="ab-cta-heading" class="ab-cta-title font-display">Want to Work With Us?</h2>
+      <p class="ab-cta-text">
+        Let&rsquo;s discuss partnerships, wholesale supply, or how Harvest Acres can serve your business.
+      </p>
+      <a routerLink="/contact" class="btn-primary ab-cta-btn inline-flex group">
+        Contact Us Today
+        <lucide-icon name="arrow-right" class="ab-cta-icon group-hover:translate-x-1 transition-transform"></lucide-icon>
+      </a>
+      <a routerLink="/governance" class="ab-cta-link">View Corporate Governance</a>
+    </section>
 
-    </div>
-
-  </section>
-
-</app-page-wrapper>
+  </div>
+</div>

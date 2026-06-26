@@ -156,51 +156,333 @@
   margin: 0;
 }
 
-.ib-distribution {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1.15rem;
+.ib-card-text--secondary {
+  margin-top: 0.75rem;
 }
 
-.ib-distribution-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.72rem;
+/* ── Scroll reveal ── */
+
+.ib-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ib-reveal.ib-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Our Enterprise ── */
+
+.ib-section--enterprise {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ib-enterprise-intro .ib-eyebrow {
+  margin-bottom: 0.4rem;
+}
+
+.ib-enterprise-carousel-label {
+  font-size: 0.8rem;
   font-weight: 600;
-  color: #15803d;
-  background: rgba(240, 253, 244, 0.95);
-  border: 1px solid rgba(22, 163, 74, 0.18);
-  padding: 0.35rem 0.65rem;
+  color: #5c4522;
+  margin: 0 0 0.85rem;
+  padding: 0 0.15rem;
+  text-align: center;
+}
+
+.ib-enterprise-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.25rem 0.15rem 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(22, 163, 74, 0.35) transparent;
+}
+
+.ib-enterprise-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.ib-enterprise-track::-webkit-scrollbar-thumb {
+  background: rgba(22, 163, 74, 0.3);
   border-radius: 9999px;
 }
 
-.ib-chip-icon {
-  width: 0.85rem;
-  height: 0.85rem;
+.ib-enterprise-card {
+  flex: 0 0 min(88vw, 300px);
+  scroll-snap-align: start;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
 }
 
-.ib-grid {
-  display: grid;
-  gap: 1rem;
+.ib-enterprise-card.ib-revealed:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px rgba(92, 69, 34, 0.12);
 }
 
-.ib-grid--four {
-  grid-template-columns: 1fr;
+.ib-enterprise-card.ib-revealed:hover .ib-enterprise-img {
+  transform: scale(1.05);
 }
 
 @media (min-width: 640px) {
-  .ib-grid--four {
-    grid-template-columns: repeat(2, 1fr);
+  .ib-enterprise-card {
+    flex: 0 0 calc(50% - 0.5rem);
   }
 }
 
 @media (min-width: 1024px) {
-  .ib-grid--four {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.15rem;
+  .ib-enterprise-card {
+    flex: 0 0 calc(25% - 0.75rem);
   }
+}
+
+.ib-enterprise-img-wrap {
+  background: linear-gradient(180deg, #f0fdf4 0%, #fff 100%);
+  padding: 0.5rem;
+  min-height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ib-enterprise-img {
+  width: 100%;
+  height: auto;
+  max-height: 11rem;
+  object-fit: contain;
+  display: block;
+  border-radius: 0.65rem;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ib-enterprise-card.ib-revealed .ib-enterprise-img {
+  animation: ibEnterpriseImgIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes ibEnterpriseImgIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ib-enterprise-card-body {
+  padding: 1rem 1.1rem 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ib-enterprise-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.55rem;
+}
+
+.ib-enterprise-card-head .ib-card-heading {
+  margin: 0;
+}
+
+.ib-icon-wrap--sm {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0;
+}
+
+.ib-icon-wrap--sm .ib-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ── Who We Serve (audience list) ── */
+
+.ib-audience-list {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 1.15rem;
+  box-shadow: 0 4px 20px rgba(92, 69, 34, 0.06);
+  overflow: hidden;
+}
+
+.ib-audience-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.1rem 1.2rem;
+  border-bottom: 1px solid rgba(92, 69, 34, 0.08);
+  transition: background 0.25s ease;
+}
+
+.ib-audience-row:last-child {
+  border-bottom: none;
+}
+
+.ib-audience-row.ib-revealed:hover {
+  background: rgba(240, 253, 244, 0.55);
+}
+
+@media (min-width: 768px) {
+  .ib-audience-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.15rem 1.5rem;
+  }
+}
+
+.ib-audience-row-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.ib-icon-wrap--row {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.ib-audience-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #5c4522;
+  margin: 0 0 0.3rem;
+}
+
+.ib-audience-desc {
+  font-size: 0.84rem;
+  color: #4b5563;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 36rem;
+}
+
+.ib-market-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.ib-market-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #15803d;
+  background: rgba(240, 253, 244, 0.95);
+  border: 1px solid rgba(22, 163, 74, 0.18);
+  border-radius: 9999px;
+  padding: 0.28rem 0.6rem;
+  white-space: nowrap;
+}
+
+/* ── Why Harvest Acres (mosaic) ── */
+
+.ib-edge-mosaic {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ib-edge-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.ib-edge-row--featured {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .ib-edge-row--featured {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ib-edge-row--secondary {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .ib-edge-row--secondary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ib-edge-tile {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 1.15rem;
+  box-shadow: 0 4px 20px rgba(92, 69, 34, 0.07);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.ib-edge-tile.ib-revealed:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(92, 69, 34, 0.1);
+}
+
+.ib-edge-tile--featured {
+  padding: 1.35rem 1.4rem 1.4rem;
+  background:
+    linear-gradient(135deg, rgba(240, 253, 244, 0.55) 0%, rgba(255, 255, 255, 0.92) 55%);
+}
+
+@media (min-width: 768px) {
+  .ib-edge-tile--featured {
+    padding: 1.5rem 1.6rem;
+  }
+}
+
+.ib-edge-tile--compact {
+  padding: 1.2rem 1.35rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ib-edge-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #5c4522;
+  margin: 0.65rem 0 0.35rem;
+}
+
+.ib-edge-tile--featured .ib-edge-title,
+.ib-edge-tile--compact .ib-edge-title {
+  margin-top: 0.65rem;
+}
+
+.ib-edge-desc {
+  font-size: 0.84rem;
+  color: #4b5563;
+  line-height: 1.55;
+  margin: 0;
 }
 
 .ib-icon-wrap {
@@ -237,6 +519,46 @@
   display: flex;
   flex-direction: column;
   scroll-margin-top: 7rem;
+}
+
+.ib-pillar--visual {
+  padding: 0;
+  overflow: hidden;
+}
+
+.ib-pillar-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ib-pillar--visual .ib-pillar-body {
+  padding: 1.2rem 1.35rem 1.35rem;
+}
+
+.ib-pillar-img-wrap {
+  background: linear-gradient(180deg, #f0fdf4 0%, #fff 100%);
+  min-height: 9.5rem;
+  max-height: 11rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ib-pillar-img {
+  width: 100%;
+  height: 100%;
+  min-height: 9.5rem;
+  max-height: 11rem;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ib-pillar--visual:hover .ib-pillar-img {
+  transform: scale(1.03);
 }
 
 .ib-pillar-head {
@@ -286,6 +608,50 @@
   opacity: 0.75;
 }
 
+.ib-pillar-platform {
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+  background: rgba(240, 253, 244, 0.55);
+  border: 1px solid rgba(22, 163, 74, 0.14);
+}
+
+.ib-pillar-platform-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #16a34a;
+  margin: 0 0 0.55rem;
+}
+
+.ib-pillar-platform-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: opacity 0.2s ease;
+}
+
+.ib-pillar-platform-brand:hover {
+  opacity: 0.85;
+}
+
+.ib-pillar-platform-logo {
+  display: block;
+  height: 2.5rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.ib-pillar-platform-desc {
+  font-size: 0.78rem;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
 .ib-pillar-cta {
   align-self: flex-start;
   text-decoration: none;
@@ -329,4 +695,36 @@
 .ib-cta-icon {
   width: 1rem;
   height: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ib-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .ib-enterprise-card.ib-revealed .ib-enterprise-img {
+    animation: none;
+  }
+
+  .ib-enterprise-card.ib-revealed:hover {
+    transform: none;
+  }
+
+  .ib-enterprise-card.ib-revealed:hover .ib-enterprise-img {
+    transform: none;
+  }
+
+  .ib-audience-row.ib-revealed:hover {
+    background: transparent;
+  }
+
+  .ib-edge-tile.ib-revealed:hover {
+    transform: none;
+  }
+
+  .ib-pillar--visual:hover .ib-pillar-img {
+    transform: none;
+  }
 }

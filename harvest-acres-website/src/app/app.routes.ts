@@ -17,4 +17,6 @@ export const routes: Routes = [
   { path: 'careers', component: CareersComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'governance', component: GovernanceComponent },
+  { path: 'corporate-governance', redirectTo: 'governance', pathMatch: 'full' },
+  { path: 'our-team', redirectTo: 'about', pathMatch: 'full' },
 ];

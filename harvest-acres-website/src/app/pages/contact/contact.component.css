@@ -2,7 +2,13 @@
   position: relative;
   min-height: calc(100vh - 108px);
   overflow: hidden;
-  padding: 2.5rem 1.25rem 4rem;
+  padding: 0.75rem 1.25rem 4rem;
+}
+
+@media (min-width: 768px) {
+  .contact-page {
+    padding-top: 1rem;
+  }
 }
 
 .contact-page-bg {
@@ -36,13 +42,13 @@
 
 .contact-header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .contact-logo {
-  width: min(18rem, 72vw);
+  width: min(20rem, 70vw);
   height: auto;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 0.5rem;
   display: block;
   object-fit: contain;
   filter: drop-shadow(0 8px 24px rgba(92, 69, 34, 0.12));
@@ -54,14 +60,14 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #16a34a;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.3rem;
 }
 
 .contact-title {
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
   color: #5c4522;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.5rem;
   letter-spacing: -0.02em;
 }
 
@@ -285,6 +291,18 @@
 
 a.contact-info-value:hover {
   color: #16a34a;
+}
+
+.contact-info-value--block {
+  display: block;
+}
+
+.contact-info-value--block + .contact-info-value--block {
+  margin-top: 0.2rem;
+}
+
+.contact-info-value--plain {
+  text-decoration: none;
 }
 
 .contact-info-note {

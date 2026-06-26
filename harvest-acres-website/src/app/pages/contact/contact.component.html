@@ -127,8 +127,8 @@
             </span>
             <div>
               <p class="contact-info-label">Email</p>
-              <a href="mailto:hello&#64;harvestacres.co.zw" class="contact-info-value">
-                hello&#64;harvestacres.co.zw
+              <a [href]="'mailto:' + contactDetails.email" class="contact-info-value">
+                {{ contactDetails.email }}
               </a>
             </div>
           </li>
@@ -139,7 +139,11 @@
             </span>
             <div>
               <p class="contact-info-label">Phone</p>
-              <a href="tel:+263241234567" class="contact-info-value">+263 24 123 4567</a>
+              @for (phone of contactDetails.phones; track phone.display) {
+                <a [href]="phone.href" class="contact-info-value contact-info-value--block">
+                  {{ phone.display }}
+                </a>
+              }
             </div>
           </li>
 
@@ -149,7 +153,9 @@
             </span>
             <div>
               <p class="contact-info-label">Address</p>
-              <p class="contact-info-value">123 Harvest Lane, Harare, Zimbabwe</p>
+              @for (line of contactDetails.addressLines; track line) {
+                <p class="contact-info-value contact-info-value--plain">{{ line }}</p>
+              }
             </div>
           </li>
         </ul>
