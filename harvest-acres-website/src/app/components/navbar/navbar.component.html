@@ -5,14 +5,18 @@
 >
   <div class="navbar-inner">
 
-    <!-- Logo + brand name -->
-    <a routerLink="/" class="navbar-brand" (click)="closeMenu()" aria-label="Harvest Acres — Home">
+    <!-- Logo (top-left) -->
+    <a routerLink="/" class="navbar-logo-link" (click)="closeMenu()" aria-label="Harvest Acres — Home">
       <img
         src="/Images/harvest-acres-logo%20(1).png"
         alt=""
         class="navbar-logo"
         aria-hidden="true"
       />
+    </a>
+
+    <!-- Brand heading (centered) -->
+    <a routerLink="/" class="navbar-brand" (click)="closeMenu()">
       <span class="navbar-brand-text">Harvest Acres</span>
     </a>
 
@@ -64,19 +68,6 @@
         class="nav-link"
       >Contact</a>
     </nav>
-
-    <!-- Mobile toggle -->
-    <button
-      type="button"
-      class="navbar-toggle lg:hidden"
-      (click)="toggleMenu()"
-      [attr.aria-expanded]="isMenuOpen"
-      aria-label="Toggle navigation menu"
-    >
-      <span class="navbar-toggle-bar" [class.is-open]="isMenuOpen"></span>
-      <span class="navbar-toggle-bar" [class.is-open]="isMenuOpen"></span>
-      <span class="navbar-toggle-bar" [class.is-open]="isMenuOpen"></span>
-    </button>
 
   </div>
 

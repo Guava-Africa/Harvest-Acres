@@ -110,7 +110,10 @@
               </div>
             }
             <div class="ab-chairman-body">
-              <h3 class="ab-chairman-title">{{ chairman.title }}</h3>
+              @if (chairman.name) {
+                <h3 class="ab-leader-name">{{ chairman.name }}</h3>
+              }
+              <p class="ab-leader-role">{{ chairman.title }}</p>
               <p class="ab-team-focus">{{ chairman.focus }}</p>
               <blockquote class="ab-chairman-quote">
                 <p>&ldquo;{{ chairmanQuote }}&rdquo;</p>
@@ -142,44 +145,15 @@
               </div>
             }
             <div>
-              <h3 class="ab-gm-title">{{ generalManager.title }}</h3>
+              @if (generalManager.name) {
+                <h3 class="ab-leader-name">{{ generalManager.name }}</h3>
+              }
+              <p class="ab-leader-role">{{ generalManager.title }}</p>
               <p class="ab-team-focus">{{ generalManager.focus }}</p>
               <p class="ab-team-bio">{{ generalManager.bio }}</p>
             </div>
           </div>
         </article>
-
-        <div class="ab-org-connector ab-org-connector--branch ab-reveal" aria-hidden="true">
-          <span class="ab-org-line"></span>
-          <span class="ab-org-branch"></span>
-        </div>
-
-        <div class="ab-dept-grid">
-          @for (manager of departmentManagers; track manager.title; let i = $index) {
-            <article class="ab-card ab-team-card ab-reveal" [style.transition-delay.ms]="80 + i * 70">
-              @if (manager.photo) {
-                <img
-                  [src]="manager.photo"
-                  [alt]="manager.photoAlt ?? manager.title"
-                  class="ab-leader-photo ab-leader-photo--card"
-                  loading="lazy"
-                  width="400"
-                  height="300"
-                />
-              } @else {
-                <div class="ab-photo-placeholder ab-photo-placeholder--card" [attr.aria-label]="manager.title + ' photo placeholder'">
-                  <lucide-icon name="user" class="ab-photo-placeholder-icon"></lucide-icon>
-                  <span class="ab-photo-placeholder-label">Photo coming soon</span>
-                </div>
-              }
-              <div class="ab-team-card-body">
-                <h3 class="ab-team-role">{{ manager.title }}</h3>
-                <p class="ab-team-focus">{{ manager.focus }}</p>
-                <p class="ab-team-bio">{{ manager.bio }}</p>
-              </div>
-            </article>
-          }
-        </div>
       </div>
     </section>
 

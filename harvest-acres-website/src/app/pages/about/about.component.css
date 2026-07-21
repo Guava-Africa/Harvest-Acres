@@ -232,10 +232,12 @@
 }
 
 .ab-leader-photo--gm {
-  width: 6.5rem;
-  height: 6.5rem;
-  border-radius: 0.75rem;
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
   flex-shrink: 0;
+  object-fit: cover;
+  border: 3px solid rgba(22, 163, 74, 0.15);
 }
 
 .ab-leader-photo--card {
@@ -259,50 +261,33 @@
 }
 
 .ab-chairman-layout {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 0;
-}
-
-@media (min-width: 900px) {
-  .ab-chairman-layout {
-    grid-template-columns: 0.9fr 1.1fr;
-  }
+  padding-top: 1.75rem;
 }
 
 .ab-chairman-visual {
-  min-height: 14rem;
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
   overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid rgba(22, 163, 74, 0.15);
 }
 
 .ab-chairman-img {
   width: 100%;
   height: 100%;
-  min-height: 14rem;
   object-fit: cover;
   display: block;
 }
 
 .ab-chairman-body {
   padding: 1.35rem 1.4rem 1.5rem;
-}
-
-.ab-chairman-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #5c4522;
-  margin: 0 0 0.25rem;
   text-align: center;
-}
-
-@media (min-width: 900px) {
-  .ab-chairman-title {
-    text-align: left;
-  }
-
-  .ab-chairman-body .ab-team-focus,
-  .ab-chairman-body .ab-team-bio {
-    text-align: left;
-  }
+  max-width: 42rem;
 }
 
 .ab-chairman-quote {
@@ -359,23 +344,22 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.65rem;
+  gap: 0.85rem;
+  padding-top: 0.5rem;
 }
 
-@media (min-width: 640px) {
-  .ab-gm-inner {
-    flex-direction: row;
-    text-align: left;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-}
-
-.ab-gm-title {
-  font-size: 1.05rem;
+.ab-leader-name {
+  font-size: 1.15rem;
   font-weight: 700;
   color: #5c4522;
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.15rem;
+}
+
+.ab-leader-role {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #16a34a;
+  margin: 0 0 0.35rem;
 }
 
 .ab-dept-grid {

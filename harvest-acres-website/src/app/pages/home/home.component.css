@@ -207,12 +207,10 @@
 .hero-visual-card {
   position: relative;
   width: 100%;
-  padding: 0.25rem;
-  border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow:
-    0 8px 28px rgba(22, 163, 74, 0.07),
-    0 2px 6px rgba(92, 69, 34, 0.04);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .hero-visual-wrap {
@@ -228,7 +226,7 @@
   display: block;
   width: 100%;
   height: auto;
-  max-height: min(38vh, 340px);
+  max-height: min(44vh, 400px);
   object-fit: contain;
   object-position: center center;
   border-radius: 1.5rem;
@@ -262,22 +260,27 @@
   max-height: none;
   object-fit: contain;
   object-position: center center;
-  filter: blur(11px);
+  filter: blur(4px);
   transform: scale(1.05) translateY(var(--hero-parallax, 0));
-  animation: none;
+  animation: edgeGlowPulse 7s ease-in-out infinite;
   -webkit-mask-image: none;
   mask-image: none;
-  opacity: 0.9;
+  opacity: 0.85;
+}
+
+@keyframes edgeGlowPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.95; }
 }
 
 @media (min-width: 768px) {
   .hero-visual-card {
-    padding: 0.3rem;
-    border-radius: 1.65rem;
+    padding: 0;
+    border-radius: 0;
   }
 
   .hero-split-img {
-    max-height: min(44vh, 400px);
+    max-height: min(50vh, 460px);
     border-radius: 1.5rem;
   }
 
@@ -288,7 +291,7 @@
 
 @media (min-width: 1024px) {
   .hero-split-img {
-    max-height: min(48vh, 440px);
+    max-height: min(54vh, 500px);
     -webkit-mask-image:
       radial-gradient(ellipse 100% 100% at 50% 50%, black 95%, transparent 100%);
     mask-image:
@@ -689,9 +692,24 @@
   position: absolute;
   inset: -8px;
   background: url('/Images/tree-orchard.jpg') center / cover no-repeat;
-  filter: blur(5px);
-  transform: scale(1.06);
+  filter: blur(2px);
+  transform: scale(1.08);
+  transform-origin: center center;
   pointer-events: none;
+  animation: orchardDrift 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes orchardDrift {
+  0% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.13) translate3d(-1.5%, -1%, 0);
+  }
+  100% {
+    transform: scale(1.1) translate3d(1.5%, 1%, 0);
+  }
 }
 
 .pipeline-section-fade {
@@ -965,11 +983,25 @@
   margin: 0;
   object-fit: contain;
   object-position: center center;
-  filter: blur(10px);
+  filter: blur(6px);
   transform: scale(1.04);
-  opacity: 0.88;
+  opacity: 0.85;
   -webkit-mask-image: none;
   mask-image: none;
+  transform-origin: center center;
+  animation: bgGlowFloat 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes bgGlowFloat {
+  0%, 100% {
+    transform: scale(1.04);
+    opacity: 0.78;
+  }
+  50% {
+    transform: scale(1.09);
+    opacity: 0.95;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1328,11 +1360,14 @@
   margin: 0;
   object-fit: contain;
   object-position: center center;
-  filter: blur(10px);
+  filter: blur(6px);
   transform: scale(1.04);
-  opacity: 0.88;
+  opacity: 0.85;
   -webkit-mask-image: none;
   mask-image: none;
+  transform-origin: center center;
+  animation: bgGlowFloat 11s ease-in-out infinite 0.6s;
+  will-change: transform, opacity;
 }
 
 @media (min-width: 768px) {
@@ -1546,6 +1581,12 @@
 
   .hero-img-edge-blur {
     display: none;
+  }
+
+  .pipeline-section-bg,
+  .products-intro-img--edge-blur,
+  .coming-soon-img--edge-blur {
+    animation: none !important;
   }
 
   .reveal {
