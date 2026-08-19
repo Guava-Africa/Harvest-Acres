@@ -3,15 +3,151 @@
 @tailwind utilities;
 
 /* =========================
+   DESIGN TOKENS
+========================= */
+
+:root {
+  color-scheme: light;
+  --ha-nav-offset: 4.5rem;
+  --ha-bg: #ffffff;
+  --ha-bg-page: #fdfaf5;
+  --ha-bg-cream: #fdfaf5;
+  --ha-bg-cream-2: #f8f4ec;
+  --ha-bg-mint: #f0fdf4;
+  --ha-bg-hero-1: #f7f9f2;
+  --ha-bg-hero-2: #ffffff;
+  --ha-bg-hero-3: #fffde7;
+  --ha-bg-hero-4: #e8f5e9;
+  --ha-surface: #ffffff;
+  --ha-surface-glass: rgba(255, 255, 255, 0.9);
+  --ha-text: #2e2418;
+  --ha-heading: #5c4522;
+  --ha-muted: #4b5563;
+  --ha-subtle: #6b7280;
+  --ha-accent: #16a34a;
+  --ha-accent-dark: #15803d;
+  --ha-border: rgba(22, 163, 74, 0.16);
+  --ha-card-border: rgba(229, 231, 235, 0.9);
+  --ha-overlay: rgba(253, 250, 245, 0.93);
+  --ha-overlay-mid: rgba(253, 250, 245, 0.9);
+  --ha-overlay-end: rgba(240, 253, 244, 0.92);
+  --ha-input-bg: #ffffff;
+  --ha-input-border: rgba(92, 69, 34, 0.15);
+  --ha-input-text: #1f2937;
+  --ha-placeholder: #9ca3af;
+  --ha-icon-well: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  --ha-mint-fade: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+  --ha-surface-glass-border: rgba(255, 255, 255, 0.75);
+  --ha-surface-hover: #fafafa;
+  --ha-tag-bg: rgba(240, 253, 244, 0.92);
+  --ha-tag-text: #15803d;
+  --ha-tag-border: rgba(22, 163, 74, 0.18);
+  --ha-btn-secondary-bg: rgba(255, 255, 255, 0.55);
+  --ha-btn-secondary-text: #15803d;
+  --ha-btn-secondary-border: rgba(22, 163, 74, 0.35);
+  --ha-btn-secondary-hover-bg: rgba(22, 163, 74, 0.08);
+  --ha-btn-secondary-hover-border: rgba(22, 163, 74, 0.5);
+  --ha-btn-on-accent-bg: #ffffff;
+  --ha-btn-on-accent-text: #15803d;
+  --ha-note-bg: rgba(240, 253, 244, 0.85);
+  --ha-note-border: rgba(22, 163, 74, 0.12);
+  --ha-row-hover: rgba(240, 253, 244, 0.55);
+  --ha-coming-card-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(253, 250, 245, 0.92) 50%, rgba(132, 204, 22, 0.06) 100%);
+  --ha-shadow: rgba(92, 69, 34, 0.08);
+  --ha-nav-1: rgba(236, 253, 245, 0.94);
+  --ha-nav-2: rgba(255, 251, 235, 0.9);
+  --ha-nav-3: rgba(240, 253, 244, 0.94);
+}
+
+html.dark {
+  color-scheme: dark;
+  --ha-bg: #12110e;
+  --ha-bg-page: #16140f;
+  --ha-bg-cream: #1a1812;
+  --ha-bg-cream-2: #1c1a14;
+  --ha-bg-mint: #142018;
+  --ha-bg-hero-1: #14120e;
+  --ha-bg-hero-2: #1a1812;
+  --ha-bg-hero-3: #1c1a12;
+  --ha-bg-hero-4: #142018;
+  --ha-surface: #1e1c17;
+  --ha-surface-glass: rgba(30, 28, 23, 0.92);
+  --ha-text: #f3efe6;
+  --ha-heading: #e8dcc8;
+  --ha-muted: #c4b8a4;
+  --ha-subtle: #a89b88;
+  --ha-accent: #4ade80;
+  --ha-accent-dark: #22c55e;
+  --ha-border: rgba(74, 222, 128, 0.2);
+  --ha-card-border: rgba(255, 255, 255, 0.08);
+  --ha-overlay: rgba(18, 17, 14, 0.94);
+  --ha-overlay-mid: rgba(18, 17, 14, 0.9);
+  --ha-overlay-end: rgba(16, 24, 18, 0.94);
+  --ha-input-bg: #1e1c17;
+  --ha-input-border: rgba(232, 220, 200, 0.16);
+  --ha-input-text: #f3efe6;
+  --ha-placeholder: #8a7e6c;
+  --ha-icon-well: linear-gradient(135deg, #1a2a1e 0%, #16301f 100%);
+  --ha-mint-fade: linear-gradient(180deg, #142018 0%, #1e1c17 100%);
+  --ha-surface-glass-border: rgba(255, 255, 255, 0.08);
+  --ha-surface-hover: #25221c;
+  --ha-tag-bg: rgba(74, 222, 128, 0.12);
+  --ha-tag-text: #4ade80;
+  --ha-tag-border: rgba(74, 222, 128, 0.22);
+  --ha-btn-secondary-bg: rgba(30, 28, 23, 0.72);
+  --ha-btn-secondary-text: #4ade80;
+  --ha-btn-secondary-border: rgba(74, 222, 128, 0.35);
+  --ha-btn-secondary-hover-bg: rgba(74, 222, 128, 0.12);
+  --ha-btn-secondary-hover-border: rgba(74, 222, 128, 0.5);
+  --ha-btn-on-accent-bg: #12110e;
+  --ha-btn-on-accent-text: #4ade80;
+  --ha-note-bg: rgba(20, 32, 24, 0.85);
+  --ha-note-border: rgba(74, 222, 128, 0.2);
+  --ha-row-hover: rgba(74, 222, 128, 0.08);
+  --ha-coming-card-bg: linear-gradient(160deg, rgba(30, 28, 23, 0.96) 0%, rgba(26, 24, 18, 0.92) 50%, rgba(74, 222, 128, 0.08) 100%);
+  --ha-shadow: rgba(0, 0, 0, 0.4);
+  --ha-nav-1: rgba(22, 28, 24, 0.96);
+  --ha-nav-2: rgba(28, 24, 18, 0.94);
+  --ha-nav-3: rgba(22, 28, 24, 0.96);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --ha-nav-offset: 6.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --ha-nav-offset: 7.25rem;
+  }
+}
+
+/* =========================
    GLOBAL
 ========================= */
+
+html {
+  overflow-x: clip;
+}
 
 body {
   font-family: "DM Sans", system-ui, sans-serif;
   margin: 0;
   padding: 0;
+  padding-top: var(--ha-nav-offset);
   -webkit-font-smoothing: antialiased;
-  padding-top: 108px; /* navbar spacing */
+  background: var(--ha-bg);
+  color: var(--ha-text);
+  overflow-x: clip;
+  max-width: 100%;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
 }
 
 /* =========================
@@ -82,6 +218,13 @@ body {
   z-index: 1;
 }
 
+html.dark .hero-section::after {
+  background: linear-gradient(
+    rgba(18, 17, 14, 0.88),
+    rgba(18, 17, 14, 0.72)
+  );
+}
+
 .hero-home.hero-section::after {
   background:
     radial-gradient(
@@ -89,6 +232,16 @@ body {
       rgba(255, 255, 255, 0.38) 0%,
       rgba(255, 255, 255, 0.18) 45%,
       rgba(255, 255, 255, 0.06) 70%,
+      transparent 100%
+    );
+}
+
+html.dark .hero-home.hero-section::after {
+  background:
+    radial-gradient(
+      ellipse 75% 65% at 50% 48%,
+      rgba(18, 17, 14, 0.35) 0%,
+      rgba(18, 17, 14, 0.16) 45%,
       transparent 100%
     );
 }
@@ -132,7 +285,7 @@ body {
 ========================= */
 
 .btn-primary {
-  background-color: #16a34a;
+  background-color: var(--ha-accent-dark);
   color: white;
   padding: 12px 24px;
   border-radius: 9999px;
@@ -145,35 +298,44 @@ body {
   transform: translateY(-2px);
 }
 
+html.dark .btn-primary {
+  color: #052e16;
+  background-color: var(--ha-accent);
+}
+
+html.dark .btn-primary:hover {
+  background-color: #86efac;
+}
+
 /* =========================
    CARDS
 ========================= */
 
 .card {
   padding: 20px;
-  background: white;
+  background: var(--ha-surface);
   border-radius: 16px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--ha-card-border);
   transition: 0.3s;
   text-align: center;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px var(--ha-shadow);
 }
 
 .premium-card {
   padding: 24px;
-  background: white;
+  background: var(--ha-surface);
   border-radius: 16px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--ha-card-border);
   transition: 0.3s;
 }
 
 .premium-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px var(--ha-shadow);
 }
 
 /* =========================
@@ -184,7 +346,7 @@ body {
   width: 28px;
   height: 28px;
   margin-bottom: 10px;
-  color: #16a34a;
+  color: var(--ha-accent);
 }
 
 /* =========================
@@ -194,6 +356,374 @@ body {
 .section-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #5C4522;
+  color: var(--ha-heading);
   margin-bottom: 10px;
+}
+
+/* =========================
+   TAILWIND COLOR ADAPTATION
+========================= */
+
+html.dark .text-gray-600,
+html.dark .text-gray-500,
+html.dark .text-gray-400,
+html.dark .text-slate-400,
+html.dark .text-slate-600,
+html.dark .text-gray-700,
+html.dark .text-gray-800 {
+  color: var(--ha-muted);
+}
+
+html.dark .text-harvest-brown,
+html.dark .text-secondary,
+html.dark .text-primary,
+html.dark .text-dark {
+  color: var(--ha-heading);
+}
+
+html.dark .text-accent,
+html.dark .text-harvest-green {
+  color: var(--ha-accent);
+}
+
+html.dark .bg-white {
+  background-color: var(--ha-surface) !important;
+  color: var(--ha-text);
+}
+
+html.dark .bg-light,
+html.dark .bg-harvest-cream {
+  background-color: var(--ha-bg-cream);
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="submit"]):not([type="button"]),
+html.dark select,
+html.dark textarea {
+  background-color: var(--ha-input-bg);
+  color: var(--ha-input-text);
+  border-color: var(--ha-input-border);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: var(--ha-placeholder);
+}
+
+html.dark .border-gray-200,
+html.dark .border-gray-100 {
+  border-color: var(--ha-card-border);
+}
+
+/* =========================
+   PAGE OVERLAYS + SURFACES
+========================= */
+
+.ab-page,
+.contact-page,
+.gv-page,
+.ib-page,
+.products-page {
+  min-height: calc(100vh - var(--ha-nav-offset));
+}
+
+html.dark .ab-page-overlay,
+html.dark .contact-page-overlay,
+html.dark .gv-page-overlay,
+html.dark .ib-page-overlay,
+html.dark .products-page-overlay {
+  background: linear-gradient(
+    180deg,
+    var(--ha-overlay) 0%,
+    var(--ha-overlay-mid) 40%,
+    var(--ha-overlay-end) 100%
+  );
+}
+
+html.dark .section-cream {
+  background: linear-gradient(180deg, var(--ha-bg-cream) 0%, var(--ha-bg-cream-2) 100%);
+}
+
+html.dark .section-white {
+  background: linear-gradient(180deg, var(--ha-bg) 0%, var(--ha-bg-cream) 100%);
+}
+
+html.dark .hero-home--split {
+  background:
+    radial-gradient(ellipse 85% 65% at 88% 25%, rgba(74, 222, 128, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 75% 60% at 12% 35%, rgba(34, 197, 94, 0.08) 0%, transparent 52%),
+    radial-gradient(ellipse 55% 45% at 50% 100%, rgba(74, 222, 128, 0.06) 0%, transparent 58%),
+    linear-gradient(155deg, var(--ha-bg-hero-1) 0%, var(--ha-bg-hero-2) 38%, var(--ha-bg-hero-3) 68%, var(--ha-bg-hero-4) 100%);
+}
+
+html.dark .stats-bar {
+  border-color: rgba(232, 220, 200, 0.08);
+  background: linear-gradient(180deg, rgba(30, 28, 23, 0.7) 0%, var(--ha-bg-cream) 100%);
+}
+
+html.dark .pipeline-section-fade {
+  background:
+    linear-gradient(
+      180deg,
+      var(--ha-overlay) 0%,
+      rgba(18, 17, 14, 0.82) 45%,
+      var(--ha-overlay-end) 100%
+    ),
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(20, 24, 18, 0.45) 0%, transparent 70%);
+}
+
+html.dark .pipeline-section h2,
+html.dark .pipeline-section .section-eyebrow,
+html.dark .pipeline-section .hero-eyebrow {
+  text-shadow: none;
+}
+
+html.dark .ab-card,
+html.dark .ab-cta,
+html.dark .contact-form-card,
+html.dark .contact-info-card,
+html.dark .gv-card,
+html.dark .gv-policies-list,
+html.dark .ib-card,
+html.dark .ib-audience-list,
+html.dark .ib-edge-tile,
+html.dark .product-card,
+html.dark .pipeline-step,
+html.dark .pipeline-about-card,
+html.dark .products-shelf-item,
+html.dark .coming-soon-card,
+html.dark .product-showcase,
+html.dark .expanding-card,
+html.dark .distribution-card,
+html.dark .ab-team-card,
+html.dark .ab-value-card,
+html.dark .ab-ops-card,
+html.dark .ab-chairman-card,
+html.dark .ab-gm-card,
+html.dark .gv-pillar-card,
+html.dark .ib-enterprise-card,
+html.dark .products-cta,
+html.dark .gv-cta,
+html.dark .ib-cta {
+  background: var(--ha-surface-glass);
+  border-color: var(--ha-card-border);
+  color: var(--ha-text);
+  box-shadow: 0 8px 24px var(--ha-shadow);
+}
+
+html.dark .ab-title,
+html.dark .ab-section-title,
+html.dark .ab-card-title,
+html.dark .contact-title,
+html.dark .contact-card-title,
+html.dark .gv-title,
+html.dark .gv-section-title,
+html.dark .ib-title,
+html.dark .ib-card-title,
+html.dark .ib-card-heading,
+html.dark .products-title,
+html.dark .products-section-title,
+html.dark .product-card-title,
+html.dark .products-shelf-title,
+html.dark .coming-soon-card h3,
+html.dark .hero-title,
+html.dark .navbar-brand-text {
+  color: var(--ha-heading);
+}
+
+html.dark .ab-lead,
+html.dark .ab-body-text,
+html.dark .ab-section-desc,
+html.dark .contact-lead,
+html.dark .contact-success-text,
+html.dark .contact-info-value,
+html.dark .contact-info-note p,
+html.dark .gv-lead,
+html.dark .gv-body-text,
+html.dark .gv-section-desc,
+html.dark .ib-lead,
+html.dark .ib-card-text,
+html.dark .products-lead,
+html.dark .products-section-desc,
+html.dark .product-card-desc,
+html.dark .products-shelf-desc,
+html.dark .products-intro-lead,
+html.dark .pipeline-about-lead,
+html.dark .hero-lead,
+html.dark .coming-soon-card p {
+  color: var(--ha-muted);
+}
+
+html.dark .ab-eyebrow,
+html.dark .contact-eyebrow,
+html.dark .gv-eyebrow,
+html.dark .ib-eyebrow,
+html.dark .products-eyebrow,
+html.dark .hero-eyebrow,
+html.dark .hero-subtitle,
+html.dark .pipeline-about-eyebrow,
+html.dark .stat-value {
+  color: var(--ha-accent);
+}
+
+html.dark .contact-field label,
+html.dark .contact-info-label,
+html.dark .pipeline-about-list li,
+html.dark .product-card-details li {
+  color: var(--ha-subtle);
+}
+
+html.dark .contact-field input,
+html.dark .contact-field select,
+html.dark .contact-field textarea {
+  color: var(--ha-input-text);
+  background: var(--ha-input-bg);
+  border-color: var(--ha-input-border);
+}
+
+html.dark .contact-field input::placeholder,
+html.dark .contact-field textarea::placeholder {
+  color: var(--ha-placeholder);
+}
+
+html.dark .contact-info-icon-wrap,
+html.dark .pipeline-icon-wrap,
+html.dark .products-shelf-icon-wrap,
+html.dark .coming-icon-wrap,
+html.dark .product-card-icon-wrap {
+  background: var(--ha-icon-well);
+  border-color: var(--ha-border);
+}
+
+html.dark .contact-info-note {
+  background: rgba(20, 32, 24, 0.85);
+  border-color: var(--ha-border);
+}
+
+html.dark .flavor-tag {
+  background: rgba(74, 222, 128, 0.12);
+  color: var(--ha-accent);
+  border-color: rgba(74, 222, 128, 0.22);
+}
+
+html.dark .hero-home--split .btn-secondary {
+  background: var(--ha-surface);
+  border-color: var(--ha-btn-secondary-border);
+  color: var(--ha-text);
+}
+
+html.dark .hero-home--split .btn-secondary:hover {
+  background: var(--ha-surface-hover);
+  border-color: var(--ha-btn-secondary-hover-border);
+  color: var(--ha-heading);
+}
+
+html.dark .btn-cta-primary {
+  background: var(--ha-btn-on-accent-bg);
+  color: var(--ha-btn-on-accent-text);
+}
+
+html.dark .products-cta-btn-secondary,
+html.dark .gv-cta-btn-secondary {
+  background: var(--ha-surface);
+  color: var(--ha-heading);
+  border-color: var(--ha-input-border);
+}
+
+html.dark .product-tag,
+html.dark .expanding-badge,
+html.dark .ib-market-tag {
+  background: var(--ha-tag-bg);
+  color: var(--ha-tag-text);
+  border-color: var(--ha-tag-border);
+}
+
+html.dark .ab-overview-visual {
+  background: linear-gradient(180deg, #142018 0%, #1e1c17 100%);
+  border-color: var(--ha-card-border);
+}
+
+html.dark .nav-dropdown-menu {
+  background: rgba(30, 28, 23, 0.97);
+  border-color: var(--ha-border);
+}
+
+html.dark .nav-link,
+html.dark .nav-dropdown-item,
+html.dark .mobile-link {
+  color: var(--ha-muted);
+}
+
+html.dark .nav-link.is-active,
+html.dark .mobile-link.is-active {
+  color: var(--ha-heading);
+}
+
+html.dark .navbar-toggle-bar {
+  background: var(--ha-heading);
+}
+
+html.dark .section-eyebrow,
+html.dark .coming-icon {
+  color: var(--ha-accent);
+}
+
+html.dark .coming-soon-card {
+  background: linear-gradient(160deg, rgba(30, 28, 23, 0.96) 0%, rgba(26, 24, 18, 0.92) 50%, rgba(74, 222, 128, 0.08) 100%);
+  border-color: rgba(74, 222, 128, 0.28);
+}
+
+html.dark .btn-secondary {
+  color: var(--ha-btn-secondary-text);
+  background: var(--ha-btn-secondary-bg);
+  border-color: var(--ha-btn-secondary-border);
+}
+
+html.dark .btn-secondary:hover {
+  background: var(--ha-btn-secondary-hover-bg);
+  border-color: var(--ha-btn-secondary-hover-border);
+  color: var(--ha-accent);
+}
+
+body.ha-nav-open {
+  overflow: hidden;
+}
+
+/* =========================
+   MOBILE ADAPTATION
+========================= */
+
+@media (max-width: 639px) {
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta-row a,
+  .hero-home--split .btn-primary,
+  .hero-home--split .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 2.75rem;
+  }
+
+  .hero-split-img {
+    max-height: min(36vh, 280px);
+  }
+
+  .contact-submit-btn {
+    width: 100%;
+  }
+
+  .contact-field input,
+  .contact-field select,
+  .contact-field textarea {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-pad {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
 }

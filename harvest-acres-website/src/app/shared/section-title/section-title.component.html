@@ -7,14 +7,14 @@
 >
 
   <!-- Title -->
-  <h2 class="text-2xl md:text-3xl font-semibold text-secondary">
+  <h2 class="text-2xl md:text-3xl font-semibold text-secondary dark:text-[var(--ha-heading)]">
     {{ title }}
   </h2>
 
   <!-- Subtitle -->
   <p 
     *ngIf="subtitle"
-    class="text-sm text-gray-500 mt-2 max-w-2xl"
+    class="text-sm text-gray-500 mt-2 max-w-2xl dark:text-[var(--ha-subtle)]"
     [ngClass]="{
       'mx-auto': align === 'center',
       'mx-0': align === 'left'

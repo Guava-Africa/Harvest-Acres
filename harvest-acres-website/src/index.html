@@ -4,7 +4,20 @@
   <meta charset="utf-8">
   <title>Harvest Acres</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('ha-theme');
+        var theme = stored === 'dark' || stored === 'light'
+          ? stored
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {}
+    })();
+  </script>
   <meta name="description" content="Harvest Acres — proudly Zimbabwean natural beverages crafted from locally sourced fruits and vegetables. Pure. Fresh. Harvested with Care.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">

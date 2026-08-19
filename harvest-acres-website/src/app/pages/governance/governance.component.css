@@ -1,6 +1,6 @@
 .gv-page {
   position: relative;
-  min-height: calc(100vh - 108px);
+  min-height: calc(100vh - var(--ha-nav-offset));
   overflow: hidden;
   padding: 1rem 1.25rem 3.5rem;
 }
@@ -66,7 +66,7 @@
 .gv-title {
   font-size: clamp(1.9rem, 4vw, 2.65rem);
   font-weight: 700;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.65rem;
   letter-spacing: -0.02em;
 }
@@ -74,7 +74,7 @@
 .gv-lead {
   max-width: 40rem;
   margin: 0 auto;
-  color: #4b5563;
+  color: var(--ha-muted);
   font-size: 0.92rem;
   line-height: 1.65;
 }
@@ -91,7 +91,7 @@
 .gv-section-title {
   font-size: clamp(1.35rem, 3vw, 1.75rem);
   font-weight: 700;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.45rem;
   letter-spacing: -0.02em;
 }
@@ -99,14 +99,14 @@
 .gv-section-desc {
   max-width: 34rem;
   margin: 0 auto;
-  color: #6b7280;
+  color: var(--ha-subtle);
   font-size: 0.88rem;
   line-height: 1.6;
 }
 
 .gv-body-text {
   font-size: 0.88rem;
-  color: #4b5563;
+  color: var(--ha-muted);
   line-height: 1.65;
   margin: 0 0 0.85rem;
 }
@@ -116,12 +116,12 @@
 }
 
 .gv-card {
-  background: rgba(255, 255, 255, 0.88);
+  background: var(--ha-surface-glass);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--ha-surface-glass-border);
   border-radius: 1.15rem;
   padding: 1.35rem 1.4rem;
-  box-shadow: 0 4px 20px rgba(92, 69, 34, 0.07);
+  box-shadow: 0 4px 20px var(--ha-shadow);
 }
 
 .gv-intro {
@@ -185,7 +185,7 @@
   width: 2.35rem;
   height: 2.35rem;
   border-radius: 0.7rem;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  background: var(--ha-icon-well);
   border: 1px solid rgba(22, 163, 74, 0.15);
   margin-bottom: 0.7rem;
 }
@@ -199,13 +199,13 @@
 .gv-pillar-title {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.4rem;
 }
 
 .gv-pillar-desc {
   font-size: 0.84rem;
-  color: #6b7280;
+  color: var(--ha-subtle);
   line-height: 1.55;
   margin: 0;
 }
@@ -213,12 +213,12 @@
 /* ── Policies ── */
 
 .gv-policies-list {
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--ha-surface-glass);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--ha-surface-glass-border);
   border-radius: 1.15rem;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(92, 69, 34, 0.06);
+  box-shadow: 0 4px 20px var(--ha-shadow);
 }
 
 .gv-policy-row {
@@ -232,7 +232,7 @@
 }
 
 .gv-policy-row.gv-revealed:hover {
-  background: rgba(240, 253, 244, 0.55);
+  background: var(--ha-row-hover);
 }
 
 @media (min-width: 768px) {
@@ -248,7 +248,7 @@
 .gv-policy-title {
   font-size: 0.88rem;
   font-weight: 600;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.35rem;
 }
 
@@ -260,7 +260,7 @@
 
 .gv-policy-desc {
   font-size: 0.84rem;
-  color: #6b7280;
+  color: var(--ha-subtle);
   line-height: 1.55;
   margin: 0;
 }
@@ -270,22 +270,22 @@
 .gv-cta {
   text-align: center;
   padding: 1.75rem 1.35rem 1.5rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--ha-surface-glass);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(22, 163, 74, 0.12);
+  border: 1px solid var(--ha-note-border);
   border-radius: 1.2rem;
-  box-shadow: 0 8px 28px rgba(92, 69, 34, 0.08);
+  box-shadow: 0 8px 28px var(--ha-shadow);
 }
 
 .gv-cta-title {
   font-size: clamp(1.25rem, 2.5vw, 1.55rem);
   font-weight: 700;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.5rem;
 }
 
 .gv-cta-text {
-  color: #6b7280;
+  color: var(--ha-subtle);
   font-size: 0.88rem;
   margin: 0 0 1.25rem;
   max-width: 30rem;
@@ -311,16 +311,17 @@
 .gv-cta-btn-secondary {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #16a34a;
+  color: var(--ha-accent);
   text-decoration: none;
   padding: 0.55rem 1rem;
-  border: 1px solid rgba(22, 163, 74, 0.25);
+  border: 1px solid var(--ha-btn-secondary-border);
   border-radius: 9999px;
-  transition: background 0.2s ease;
+  background: var(--ha-surface);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .gv-cta-btn-secondary:hover {
-  background: rgba(240, 253, 244, 0.8);
+  background: var(--ha-btn-secondary-hover-bg);
 }
 
 .gv-cta-icon {

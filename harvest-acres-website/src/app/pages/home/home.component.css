@@ -31,11 +31,11 @@
 }
 
 .section-cream {
-  background: linear-gradient(180deg, #fdfaf5 0%, #f8f4ec 100%);
+  background: linear-gradient(180deg, var(--ha-bg-cream) 0%, var(--ha-bg-cream-2) 100%);
 }
 
 .section-white {
-  background: linear-gradient(180deg, #ffffff 0%, #fdfaf5 100%);
+  background: linear-gradient(180deg, var(--ha-bg) 0%, var(--ha-bg-cream) 100%);
 }
 
 /* ── Hero layout (split — mockup style) ── */
@@ -53,7 +53,7 @@
     radial-gradient(ellipse 85% 65% at 88% 25%, rgba(255, 253, 231, 0.85) 0%, transparent 55%),
     radial-gradient(ellipse 75% 60% at 12% 35%, rgba(232, 245, 233, 0.75) 0%, transparent 52%),
     radial-gradient(ellipse 55% 45% at 50% 100%, rgba(134, 239, 172, 0.12) 0%, transparent 58%),
-    linear-gradient(155deg, #f7f9f2 0%, #ffffff 38%, #fffde7 68%, #e8f5e9 100%);
+    linear-gradient(155deg, var(--ha-bg-hero-1) 0%, var(--ha-bg-hero-2) 38%, var(--ha-bg-hero-3) 68%, var(--ha-bg-hero-4) 100%);
 }
 
 @media (min-width: 768px) {
@@ -145,7 +145,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: #2e2418;
+  color: var(--ha-text);
   margin-bottom: 0.4rem;
 }
 
@@ -161,7 +161,7 @@
 .hero-lead {
   font-size: 0.88rem;
   line-height: 1.6;
-  color: #4b5563;
+  color: var(--ha-muted);
   max-width: 28rem;
   margin: 0 auto 1rem;
 }
@@ -334,18 +334,18 @@
 }
 
 .hero-home--split .btn-secondary {
-  background: #ffffff;
-  border-color: rgba(46, 36, 24, 0.22);
-  color: #2e2418;
+  background: var(--ha-surface);
+  border-color: var(--ha-btn-secondary-border);
+  color: var(--ha-text);
   backdrop-filter: none;
-  box-shadow: 0 2px 8px rgba(92, 69, 34, 0.06);
+  box-shadow: 0 2px 8px var(--ha-shadow);
 }
 
 .hero-home--split .btn-secondary:hover {
-  background: #fafafa;
-  border-color: rgba(46, 36, 24, 0.35);
-  color: #5c4522;
-  box-shadow: 0 4px 14px rgba(92, 69, 34, 0.08);
+  background: var(--ha-surface-hover);
+  border-color: var(--ha-btn-secondary-hover-border);
+  color: var(--ha-heading);
+  box-shadow: 0 4px 14px var(--ha-shadow);
 }
 
 /* Legacy hero decorative styles (unused on lineup hero) */
@@ -546,9 +546,9 @@
 
 .stats-bar {
   position: relative;
-  border-top: 1px solid rgba(92, 69, 34, 0.08);
-  border-bottom: 1px solid rgba(92, 69, 34, 0.08);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(253, 250, 245, 0.9) 100%);
+  border-top: 1px solid var(--ha-card-border);
+  border-bottom: 1px solid var(--ha-card-border);
+  background: linear-gradient(180deg, var(--ha-surface-glass) 0%, var(--ha-bg-cream) 100%);
 }
 
 .stats-bar-inner {
@@ -633,20 +633,20 @@
 .btn-secondary {
   display: inline-flex;
   align-items: center;
-  border: 1.5px solid rgba(22, 163, 74, 0.35);
-  color: #15803d;
+  border: 1.5px solid var(--ha-btn-secondary-border);
+  color: var(--ha-btn-secondary-text);
   padding: 0.75rem 1.6rem;
   border-radius: 9999px;
   font-weight: 600;
   font-size: 0.9rem;
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--ha-btn-secondary-bg);
   backdrop-filter: blur(8px);
-  transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(22, 163, 74, 0.08);
-  border-color: rgba(22, 163, 74, 0.5);
+  background-color: var(--ha-btn-secondary-hover-bg);
+  border-color: var(--ha-btn-secondary-hover-border);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(22, 163, 74, 0.12);
 }
@@ -685,7 +685,7 @@
 .pipeline-section {
   position: relative;
   overflow: hidden;
-  background: #f0fdf4;
+  background: var(--ha-bg-mint);
 }
 
 .pipeline-section-bg {
@@ -718,11 +718,10 @@
   background:
     linear-gradient(
       180deg,
-      rgba(253, 250, 245, 0.9) 0%,
-      rgba(255, 255, 255, 0.78) 45%,
-      rgba(240, 253, 244, 0.88) 100%
-    ),
-    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+      var(--ha-overlay) 0%,
+      var(--ha-overlay-mid) 45%,
+      var(--ha-overlay-end) 100%
+    );
   pointer-events: none;
 }
 
@@ -758,8 +757,8 @@
   text-align: center;
   padding: 1.5rem 1.25rem 1.65rem;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: var(--ha-surface-glass);
+  border: 1px solid var(--ha-surface-glass-border);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow:
@@ -785,14 +784,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(
-    160deg,
-    #ffffff 0%,
-    #f0fdf4 35%,
-    #dcfce7 70%,
-    #bbf7d0 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: var(--ha-icon-well);
+  border: 1px solid var(--ha-surface-glass-border);
   box-shadow:
     0 4px 10px rgba(22, 163, 74, 0.15),
     0 8px 20px rgba(92, 69, 34, 0.08),
@@ -813,7 +806,7 @@
 .pipeline-icon {
   width: 30px;
   height: 30px;
-  color: #166534;
+  color: var(--ha-accent-dark);
   filter: drop-shadow(0 2px 4px rgba(22, 163, 74, 0.3));
 }
 
@@ -857,8 +850,8 @@
   text-align: center;
   padding: 1.5rem 1.35rem 1.65rem;
   border-radius: 1.15rem;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: var(--ha-surface-glass);
+  border: 1px solid var(--ha-surface-glass-border);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow:
@@ -883,7 +876,7 @@
 
 .pipeline-about-lead {
   font-size: 0.9rem;
-  color: #4b5563;
+  color: var(--ha-muted);
   line-height: 1.65;
   margin: 0 0 1rem;
 }
@@ -901,7 +894,7 @@
   position: relative;
   padding-left: 1rem;
   font-size: 0.82rem;
-  color: #6b7280;
+  color: var(--ha-subtle);
   line-height: 1.55;
   margin-bottom: 0.45rem;
 }
@@ -1016,7 +1009,7 @@
   text-align: center;
   font-size: 0.92rem;
   line-height: 1.65;
-  color: #4b5563;
+  color: var(--ha-muted);
   margin: 0;
 }
 
@@ -1040,9 +1033,9 @@
   align-items: center;
   text-align: center;
   padding: 1.35rem 1.15rem 1.5rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--ha-surface-glass);
   border-radius: 16px;
-  border: 1px solid rgba(229, 231, 235, 0.9);
+  border: 1px solid var(--ha-card-border);
   box-shadow:
     0 2px 6px rgba(92, 69, 34, 0.04),
     0 8px 24px rgba(22, 163, 74, 0.06);
@@ -1078,14 +1071,14 @@
 .products-shelf-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin-bottom: 0.4rem;
 }
 
 .products-shelf-desc {
   font-size: 0.82rem;
   line-height: 1.55;
-  color: #6b7280;
+  color: var(--ha-subtle);
   margin-bottom: 0.75rem;
   flex-grow: 1;
 }
@@ -1119,13 +1112,13 @@
 .product-showcase {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--ha-surface-glass);
   border-radius: 22px;
-  border: 1px solid rgba(229, 231, 235, 0.9);
+  border: 1px solid var(--ha-card-border);
   overflow: hidden;
   box-shadow:
-    0 8px 32px rgba(92, 69, 34, 0.07),
-    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    0 8px 32px var(--ha-shadow),
+    0 1px 0 var(--ha-surface-glass-border) inset;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
 }
 
@@ -1241,9 +1234,9 @@
 
 .product-card {
   padding: 1.85rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--ha-surface-glass);
   border-radius: 18px;
-  border: 1px solid rgba(229, 231, 235, 0.9);
+  border: 1px solid var(--ha-card-border);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -1272,13 +1265,13 @@
 .product-card h3 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #5C4522;
+  color: var(--ha-heading);
   margin-bottom: 0.5rem;
 }
 
 .product-card p {
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--ha-subtle);
   line-height: 1.65;
 }
 
@@ -1399,7 +1392,7 @@
 .coming-soon-card {
   position: relative;
   padding: 1.5rem 1.25rem 1.6rem;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(253, 250, 245, 0.92) 50%, rgba(132, 204, 22, 0.06) 100%);
+  background: var(--ha-coming-card-bg);
   border-radius: 18px;
   border: 1px dashed rgba(22, 163, 74, 0.28);
   text-align: center;
@@ -1456,13 +1449,13 @@
 .coming-soon-card h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: #5C4522;
+  color: var(--ha-heading);
   margin-bottom: 0.4rem;
 }
 
 .coming-soon-card p {
   font-size: 0.82rem;
-  color: #6b7280;
+  color: var(--ha-subtle);
   line-height: 1.6;
   margin-bottom: 0.75rem;
 }
@@ -1513,14 +1506,14 @@
 .btn-cta-primary {
   display: inline-flex;
   align-items: center;
-  background: white;
-  color: #15803d;
+  background: var(--ha-btn-on-accent-bg);
+  color: var(--ha-btn-on-accent-text);
   padding: 0.8rem 1.85rem;
   border-radius: 9999px;
   font-weight: 600;
   font-size: 0.9rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-cta-primary:hover {

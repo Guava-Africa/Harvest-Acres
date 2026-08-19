@@ -1,6 +1,6 @@
 .ab-page {
   position: relative;
-  min-height: calc(100vh - 108px);
+  min-height: calc(100vh - var(--ha-nav-offset));
   overflow: hidden;
   padding: 1rem 1.25rem 3.5rem;
 }
@@ -66,7 +66,7 @@
 .ab-title {
   font-size: clamp(1.9rem, 4vw, 2.65rem);
   font-weight: 700;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.65rem;
   letter-spacing: -0.02em;
 }
@@ -74,7 +74,7 @@
 .ab-lead {
   max-width: 36rem;
   margin: 0 auto;
-  color: #4b5563;
+  color: var(--ha-muted);
   font-size: 0.92rem;
   line-height: 1.65;
 }
@@ -91,7 +91,7 @@
 .ab-section-title {
   font-size: clamp(1.45rem, 3vw, 1.9rem);
   font-weight: 700;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.45rem;
   letter-spacing: -0.02em;
 }
@@ -99,14 +99,14 @@
 .ab-section-desc {
   max-width: 34rem;
   margin: 0 auto;
-  color: #6b7280;
+  color: var(--ha-subtle);
   font-size: 0.88rem;
   line-height: 1.6;
 }
 
 .ab-body-text {
   font-size: 0.88rem;
-  color: #4b5563;
+  color: var(--ha-muted);
   line-height: 1.65;
   margin: 0 0 0.85rem;
 }
@@ -116,18 +116,18 @@
 }
 
 .ab-card {
-  background: rgba(255, 255, 255, 0.88);
+  background: var(--ha-surface-glass);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--ha-surface-glass-border);
   border-radius: 1.15rem;
   padding: 1.35rem 1.4rem;
-  box-shadow: 0 4px 20px rgba(92, 69, 34, 0.07);
+  box-shadow: 0 4px 20px var(--ha-shadow);
 }
 
 .ab-card-title {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.75rem;
 }
 
@@ -164,8 +164,8 @@
 .ab-overview-visual {
   border-radius: 1.15rem;
   overflow: hidden;
-  background: linear-gradient(180deg, #f0fdf4 0%, #fff 100%);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: var(--ha-mint-fade);
+  border: 1px solid var(--ha-surface-glass-border);
   box-shadow: 0 8px 28px rgba(92, 69, 34, 0.08);
 }
 
@@ -185,16 +185,16 @@
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%);
-  border: 2px dashed rgba(22, 163, 74, 0.28);
-  color: #9ca3af;
+  background: var(--ha-mint-fade);
+  border: 2px dashed var(--ha-border);
+  color: var(--ha-placeholder);
   text-align: center;
 }
 
 .ab-photo-placeholder-icon {
   width: 2.25rem;
   height: 2.25rem;
-  color: #9ca3af;
+  color: var(--ha-placeholder);
   opacity: 0.85;
 }
 
@@ -298,7 +298,7 @@
 
 .ab-chairman-quote p {
   font-size: 0.88rem;
-  color: #4b5563;
+  color: var(--ha-muted);
   line-height: 1.65;
   font-style: italic;
   margin: 0;
@@ -335,8 +335,7 @@
 .ab-gm-card {
   width: 100%;
   max-width: 36rem;
-  background:
-    linear-gradient(135deg, rgba(240, 253, 244, 0.6) 0%, rgba(255, 255, 255, 0.92) 60%);
+  background: var(--ha-mint-fade);
 }
 
 .ab-gm-inner {
@@ -351,7 +350,7 @@
 .ab-leader-name {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.15rem;
 }
 
@@ -421,7 +420,7 @@
   height: 3.5rem;
   margin: 0 auto 0.75rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  background: var(--ha-icon-well);
   border: 1px solid rgba(22, 163, 74, 0.15);
   display: flex;
   align-items: center;
@@ -450,7 +449,7 @@
 .ab-team-role {
   font-size: 0.88rem;
   font-weight: 600;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.35rem;
 }
 
@@ -465,7 +464,7 @@
 
 .ab-team-bio {
   font-size: 0.78rem;
-  color: #6b7280;
+  color: var(--ha-subtle);
   line-height: 1.55;
   margin: 0;
   text-align: center;
@@ -494,7 +493,7 @@
 
 .ab-mission-quote p {
   font-size: 0.88rem;
-  color: #4b5563;
+  color: var(--ha-muted);
   line-height: 1.65;
   font-style: italic;
   margin: 0;
@@ -532,7 +531,7 @@
   width: 2.35rem;
   height: 2.35rem;
   border-radius: 0.7rem;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  background: var(--ha-icon-well);
   border: 1px solid rgba(22, 163, 74, 0.15);
   margin-bottom: 0.65rem;
 }
@@ -546,13 +545,13 @@
 .ab-value-title {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.35rem;
 }
 
 .ab-value-desc {
   font-size: 0.78rem;
-  color: #6b7280;
+  color: var(--ha-subtle);
   line-height: 1.55;
   margin: 0;
 }
@@ -584,13 +583,13 @@
 .ab-ops-title {
   font-size: 0.92rem;
   font-weight: 600;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.35rem;
 }
 
 .ab-ops-detail {
   font-size: 0.8rem;
-  color: #6b7280;
+  color: var(--ha-subtle);
   line-height: 1.55;
   margin: 0;
 }
@@ -600,9 +599,9 @@
 .ab-cta {
   text-align: center;
   padding: 1.75rem 1.35rem 1.5rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--ha-surface-glass);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(22, 163, 74, 0.12);
+  border: 1px solid var(--ha-note-border);
   border-radius: 1.2rem;
   box-shadow: 0 8px 28px rgba(92, 69, 34, 0.08);
 }
@@ -610,12 +609,12 @@
 .ab-cta-title {
   font-size: clamp(1.3rem, 2.5vw, 1.65rem);
   font-weight: 700;
-  color: #5c4522;
+  color: var(--ha-heading);
   margin: 0 0 0.5rem;
 }
 
 .ab-cta-text {
-  color: #6b7280;
+  color: var(--ha-subtle);
   font-size: 0.88rem;
   margin: 0 0 1.25rem;
   max-width: 30rem;

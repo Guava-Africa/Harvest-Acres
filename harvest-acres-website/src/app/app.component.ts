@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-
-// ✅ ADD THIS
+import { ThemeService } from './services/theme.service';
 import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
@@ -14,11 +13,13 @@ import { LucideAngularModule } from 'lucide-angular';
     RouterOutlet,
     NavbarComponent,
     FooterComponent,
-
-    // ADD THIS
     LucideAngularModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor() {
+    inject(ThemeService);
+  }
+}
