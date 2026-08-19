@@ -28,9 +28,9 @@
   --ha-accent-dark: #15803d;
   --ha-border: rgba(22, 163, 74, 0.16);
   --ha-card-border: rgba(229, 231, 235, 0.9);
-  --ha-overlay: rgba(253, 250, 245, 0.93);
-  --ha-overlay-mid: rgba(253, 250, 245, 0.9);
-  --ha-overlay-end: rgba(240, 253, 244, 0.92);
+  --ha-overlay: rgba(253, 250, 245, 0.78);
+  --ha-overlay-mid: rgba(253, 250, 245, 0.68);
+  --ha-overlay-end: rgba(240, 253, 244, 0.72);
   --ha-input-bg: #ffffff;
   --ha-input-border: rgba(92, 69, 34, 0.15);
   --ha-input-text: #1f2937;
@@ -80,9 +80,9 @@ html.dark {
   --ha-accent-dark: #22c55e;
   --ha-border: rgba(74, 222, 128, 0.2);
   --ha-card-border: rgba(255, 255, 255, 0.08);
-  --ha-overlay: rgba(18, 17, 14, 0.94);
-  --ha-overlay-mid: rgba(18, 17, 14, 0.9);
-  --ha-overlay-end: rgba(16, 24, 18, 0.94);
+  --ha-overlay: rgba(18, 17, 14, 0.8);
+  --ha-overlay-mid: rgba(18, 17, 14, 0.7);
+  --ha-overlay-end: rgba(16, 24, 18, 0.74);
   --ha-input-bg: #1e1c17;
   --ha-input-border: rgba(232, 220, 200, 0.16);
   --ha-input-text: #f3efe6;
@@ -170,8 +170,10 @@ svg {
   background-position: center;
   background-repeat: no-repeat;
 
-  filter: blur(6px);
-  transform: scale(1.08);
+  filter: blur(3px);
+  transform: scale(1.12);
+  animation: haBgDrift 32s ease-in-out infinite alternate;
+  will-change: transform;
 
   z-index: 0;
 }
@@ -211,8 +213,8 @@ svg {
   inset: 0;
 
   background: linear-gradient(
-    rgba(255,255,255,0.88),
-    rgba(255,255,255,0.75)
+    rgba(255,255,255,0.72),
+    rgba(255,255,255,0.58)
   );
 
   z-index: 1;
@@ -220,8 +222,8 @@ svg {
 
 html.dark .hero-section::after {
   background: linear-gradient(
-    rgba(18, 17, 14, 0.88),
-    rgba(18, 17, 14, 0.72)
+    rgba(18, 17, 14, 0.72),
+    rgba(18, 17, 14, 0.56)
   );
 }
 
@@ -277,6 +279,105 @@ html.dark .hero-home.hero-section::after {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes haBgDrift {
+  0% { transform: scale(1.12) translate3d(0, 0, 0); }
+  50% { transform: scale(1.2) translate3d(-2.2%, -1.4%, 0); }
+  100% { transform: scale(1.14) translate3d(2%, 1.2%, 0); }
+}
+
+@keyframes haImgFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+
+@keyframes haImgKenBurns {
+  0% { scale: 1.04; translate: 0 0; }
+  50% { scale: 1.1; translate: -1.4% -0.8%; }
+  100% { scale: 1.06; translate: 1.2% 0.9%; }
+}
+
+/* =========================
+   PAGE BACKGROUNDS + IMAGE MOTION
+========================= */
+
+.ab-page-overlay,
+.contact-page-overlay,
+.gv-page-overlay,
+.ib-page-overlay,
+.products-page-overlay {
+  background: linear-gradient(
+    180deg,
+    var(--ha-overlay) 0%,
+    var(--ha-overlay-mid) 40%,
+    var(--ha-overlay-end) 100%
+  );
+}
+
+.ab-page-bg,
+.contact-page-bg,
+.gv-page-bg,
+.ib-page-bg,
+.products-page-bg {
+  inset: -14%;
+  filter: blur(2.5px);
+  transform: scale(1.12);
+  animation: haBgDrift 32s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-split-visual,
+.products-intro-visual,
+.coming-soon-visual,
+.products-showcase-inner,
+.product-card-img,
+.ib-enterprise-img {
+  animation: haImgFloat 8s ease-in-out infinite;
+}
+
+.product-card:nth-child(2) .product-card-img,
+.ib-enterprise-card:nth-child(2) .ib-enterprise-img {
+  animation-delay: 0.7s;
+  animation-duration: 9s;
+}
+
+.product-card:nth-child(3) .product-card-img,
+.ib-enterprise-card:nth-child(3) .ib-enterprise-img {
+  animation-delay: 1.3s;
+  animation-duration: 7.5s;
+}
+
+.ab-overview-img,
+.ab-chairman-img,
+.product-showcase-img,
+.product-banner-img,
+.ib-pillar-img {
+  animation: haImgKenBurns 18s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::before,
+  .ab-page-bg,
+  .contact-page-bg,
+  .gv-page-bg,
+  .ib-page-bg,
+  .products-page-bg,
+  .pipeline-section-bg,
+  .cta-section::before,
+  .hero-split-visual,
+  .products-intro-visual,
+  .coming-soon-visual,
+  .products-showcase-inner,
+  .product-card-img,
+  .ib-enterprise-img,
+  .ab-overview-img,
+  .ab-chairman-img,
+  .product-showcase-img,
+  .product-banner-img,
+  .ib-pillar-img {
+    animation: none !important;
   }
 }
 

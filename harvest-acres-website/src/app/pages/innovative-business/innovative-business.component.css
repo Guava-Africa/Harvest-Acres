@@ -13,10 +13,12 @@
 
 .ib-page-bg {
   position: absolute;
-  inset: -10px;
+  inset: -14%;
   background: url('/Images/tree-orchard.jpg') center / cover no-repeat;
-  filter: blur(4px);
-  transform: scale(1.05);
+  filter: blur(2.5px);
+  transform: scale(1.12);
+  animation: haBgDrift 32s ease-in-out infinite alternate;
+  will-change: transform;
   pointer-events: none;
 }
 
@@ -26,9 +28,9 @@
   background:
     linear-gradient(
       180deg,
-      rgba(253, 250, 245, 0.93) 0%,
-      rgba(253, 250, 245, 0.9) 40%,
-      rgba(240, 253, 244, 0.92) 100%
+      var(--ha-overlay) 0%,
+      var(--ha-overlay-mid) 40%,
+      var(--ha-overlay-end) 100%
     );
   pointer-events: none;
 }
@@ -270,7 +272,9 @@
 }
 
 .ib-enterprise-card.ib-revealed .ib-enterprise-img {
-  animation: ibEnterpriseImgIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation:
+    ibEnterpriseImgIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both,
+    haImgFloat 8s ease-in-out 0.9s infinite;
 }
 
 @keyframes ibEnterpriseImgIn {
@@ -697,6 +701,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .ib-page-bg,
+  .ib-enterprise-img,
+  .ib-pillar-img {
+    animation: none;
+  }
+
   .ib-reveal {
     opacity: 1;
     transform: none;
