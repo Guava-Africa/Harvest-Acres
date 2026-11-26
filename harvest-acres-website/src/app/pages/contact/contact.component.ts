@@ -24,7 +24,7 @@ export class ContactComponent {
       { display: '+263 242-257156', href: 'tel:+263242257156' },
       { display: '+263 242-2571571', href: 'tel:+2632422571571' },
     ],
-    addressLines: ['No 1 Martin Road', 'Msasa, Harare'],
+    addressLines: ['55 Lawley Drive', 'Belvedere, Harare'],
   };
 
   readonly inquiryTypes = [

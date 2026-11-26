@@ -8,21 +8,15 @@ interface ProductItem {
   description: string;
   details: string[];
   highlights: string[];
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
+  flavours?: { name: string; image: string }[];
 }
 
 interface DistributionChannel {
   icon: string;
   title: string;
   description: string;
-}
-
-interface ExpandingItem {
-  icon: string;
-  title: string;
-  description: string;
-  highlights: string[];
 }
 
 @Component({
@@ -59,53 +53,30 @@ export class ServicesComponent implements AfterViewInit, OnDestroy {
         'Made with real fruit concentrates and natural flavouring.',
         'Free from artificial colours and preservatives — simply dilute to taste.',
       ],
-      highlights: ['Grape', 'Peach & Granadilla', '2 Litre'],
-      image: '/Images/Coridals.png',
-      imageAlt: 'Harvest Acres 2 litre fruit cordials',
+      highlights: ['2 Litre'],
+      flavours: [
+        { name: 'Grape', image: '/Images/cordial-grape.png' },
+        { name: 'Lemon & Lime', image: '/Images/cordial-lemon-lime.png' },
+        { name: 'Peach & Granadilla', image: '/Images/cordial-peach-granadilla.png' },
+        { name: 'Pineapple', image: '/Images/cordial-pineapple.png' },
+      ],
     },
     {
       icon: 'sparkles',
       title: 'Tamba Ready-to-Drink',
       description:
-        'Character-led 500ml fruit juices — grab-and-go refreshment with vibrant flavours kids and families love.',
+        'Character-led 300ml fruit juices — grab-and-go refreshment with vibrant flavours kids and families love.',
       details: [
         'Blended with fruit juices and naturally inspired ingredients.',
         'No artificial additives — just real fruit taste in every sip.',
       ],
-      highlights: ['Gogo Grape', 'Captain Pine', 'Zinga Zang', 'Peach & Dyla'],
-      image: '/Images/Fruit%20drinks%20line%20up.png',
-      imageAlt: 'Harvest Acres Tamba ready-to-drink fruit juice lineup',
-    },
-  ];
-
-  readonly expanding: ExpandingItem[] = [
-    {
-      icon: 'zap',
-      title: 'Sugarcane Juice',
-      description:
-        'Fresh-pressed from Zimbabwean sugarcane — natural, energizing hydration.',
-      highlights: ['Fresh-Pressed', 'Natural Energy'],
-    },
-    {
-      icon: 'sparkles',
-      title: 'Flavoured & Sparkling Water',
-      description:
-        'Light fruit infusions and crisp sparkling refreshment for everyday hydration.',
-      highlights: ['Sparkling', 'Infused'],
-    },
-    {
-      icon: 'sprout',
-      title: 'Baobab Drink',
-      description:
-        'Creamy baobab goodness rich in Vitamin C — a true Zimbabwean superfruit.',
-      highlights: ['Vitamin C', 'Superfruit'],
-    },
-    {
-      icon: 'leaf',
-      title: 'Iced Tea & Herbal Infusions',
-      description:
-        'Cooling iced tea and wellness blends — starting with Lemon & Mint.',
-      highlights: ['Lemon & Mint', 'Herbal Blends'],
+      highlights: ['300ml'],
+      flavours: [
+        { name: 'Gogo Grape', image: '/Images/tamba-gogo-grape.jpg' },
+        { name: 'Zing & Zang', image: '/Images/tamba-zing-zang.jpg' },
+        { name: 'Peachy & Dilla', image: '/Images/tamba-peachy-dilla.jpg' },
+        { name: 'Captain Pine', image: '/Images/tamba-captain-pine.jpg' },
+      ],
     },
   ];
 

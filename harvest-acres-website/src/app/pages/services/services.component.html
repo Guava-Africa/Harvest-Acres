@@ -24,20 +24,20 @@
     <div class="products-showcase-visual products-showcase-visual--lineup">
       <div class="products-showcase-inner">
         <img
-          src="/Images/Product%20line%20up.png"
-          alt="Harvest Acres full product lineup — mineral water, cordials, and fruit drinks"
+          src="/Images/cordial-lineup.png"
+          alt="Harvest Acres 2L cordials in grape, lemon and lime, peach and granadilla, and pineapple"
           class="products-showcase-img"
           loading="eager"
-          width="1400"
-          height="800"
+          width="1672"
+          height="941"
         />
         <div class="products-showcase-edge-blur" aria-hidden="true">
           <img
-            src="/Images/Product%20line%20up.png"
+            src="/Images/cordial-lineup.png"
             alt=""
             class="products-showcase-img products-showcase-img--edge-blur"
-            width="1400"
-            height="800"
+            width="1672"
+            height="941"
           />
         </div>
       </div>
@@ -57,9 +57,10 @@
       <div class="products-grid">
         @for (product of products; track product.title) {
           <article class="product-card">
+            @if (product.image; as image) {
             <div class="product-card-img-wrap">
               <img
-                [src]="product.image"
+                [src]="image"
                 [alt]="product.imageAlt"
                 class="product-card-img"
                 loading="lazy"
@@ -67,6 +68,7 @@
                 height="500"
               />
             </div>
+            }
             <div class="product-card-body">
               <div class="product-card-icon-wrap">
                 <lucide-icon [name]="product.icon" class="product-card-icon"></lucide-icon>
@@ -83,57 +85,15 @@
                   <span class="product-tag">{{ tag }}</span>
                 }
               </div>
-            </div>
-          </article>
-        }
-      </div>
-    </section>
-
-    <section class="products-section products-section--expanding" aria-labelledby="expanding-heading">
-      <div class="products-section-head">
-        <p class="products-eyebrow">On the Horizon</p>
-        <h2 id="expanding-heading" class="products-section-title font-display">
-          What We&rsquo;re Expanding Into
-        </h2>
-        <p class="products-section-desc">
-          New flavours and formats in development — the same natural standards, more ways to refresh.
-        </p>
-      </div>
-
-      <div class="products-showcase-visual products-showcase-visual--expanding">
-        <div class="products-showcase-inner">
-          <img
-            src="/Images/Coming%20soons.png"
-            alt="Harvest Acres upcoming products — sugarcane juice, sparkling water, baobab drink, and herbal infusions"
-            class="products-showcase-img"
-            loading="lazy"
-            width="1200"
-            height="800"
-          />
-          <div class="products-showcase-edge-blur" aria-hidden="true">
-            <img
-              src="/Images/Coming%20soons.png"
-              alt=""
-              class="products-showcase-img products-showcase-img--edge-blur"
-              width="1200"
-              height="800"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="expanding-grid">
-        @for (item of expanding; track item.title) {
-          <article class="expanding-card">
-            <span class="expanding-badge">Coming Soon</span>
-            <div class="expanding-icon-wrap">
-              <lucide-icon [name]="item.icon" class="expanding-icon"></lucide-icon>
-            </div>
-            <h3 class="expanding-title">{{ item.title }}</h3>
-            <p class="expanding-desc">{{ item.description }}</p>
-            <div class="product-tags">
-              @for (tag of item.highlights; track tag) {
-                <span class="product-tag">{{ tag }}</span>
+              @if (product.flavours; as flavours) {
+                <ul class="product-flavours" [attr.aria-label]="product.title + ' flavours'">
+                  @for (flavour of flavours; track flavour.name) {
+                    <li>
+                      <img [src]="flavour.image" alt="" width="1122" height="1402" loading="lazy" />
+                      <span>{{ flavour.name }}</span>
+                    </li>
+                  }
+                </ul>
               }
             </div>
           </article>

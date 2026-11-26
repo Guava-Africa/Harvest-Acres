@@ -52,7 +52,6 @@
   --ha-note-bg: rgba(240, 253, 244, 0.85);
   --ha-note-border: rgba(22, 163, 74, 0.12);
   --ha-row-hover: rgba(240, 253, 244, 0.55);
-  --ha-coming-card-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(253, 250, 245, 0.92) 50%, rgba(132, 204, 22, 0.06) 100%);
   --ha-shadow: rgba(92, 69, 34, 0.08);
   --ha-nav-1: rgba(236, 253, 245, 0.94);
   --ha-nav-2: rgba(255, 251, 235, 0.9);
@@ -104,7 +103,6 @@ html.dark {
   --ha-note-bg: rgba(20, 32, 24, 0.85);
   --ha-note-border: rgba(74, 222, 128, 0.2);
   --ha-row-hover: rgba(74, 222, 128, 0.08);
-  --ha-coming-card-bg: linear-gradient(160deg, rgba(30, 28, 23, 0.96) 0%, rgba(26, 24, 18, 0.92) 50%, rgba(74, 222, 128, 0.08) 100%);
   --ha-shadow: rgba(0, 0, 0, 0.4);
   --ha-nav-1: rgba(22, 28, 24, 0.96);
   --ha-nav-2: rgba(28, 24, 18, 0.94);
@@ -330,7 +328,6 @@ html.dark .hero-home.hero-section::after {
 
 .hero-split-visual,
 .products-intro-visual,
-.coming-soon-visual,
 .products-showcase-inner,
 .product-card-img,
 .ib-enterprise-img {
@@ -368,7 +365,6 @@ html.dark .hero-home.hero-section::after {
   .cta-section::before,
   .hero-split-visual,
   .products-intro-visual,
-  .coming-soon-visual,
   .products-showcase-inner,
   .product-card-img,
   .ib-enterprise-img,
@@ -591,9 +587,7 @@ html.dark .product-card,
 html.dark .pipeline-step,
 html.dark .pipeline-about-card,
 html.dark .products-shelf-item,
-html.dark .coming-soon-card,
 html.dark .product-showcase,
-html.dark .expanding-card,
 html.dark .distribution-card,
 html.dark .ab-team-card,
 html.dark .ab-value-card,
@@ -625,7 +619,6 @@ html.dark .products-title,
 html.dark .products-section-title,
 html.dark .product-card-title,
 html.dark .products-shelf-title,
-html.dark .coming-soon-card h3,
 html.dark .hero-title,
 html.dark .navbar-brand-text {
   color: var(--ha-heading);
@@ -649,8 +642,7 @@ html.dark .product-card-desc,
 html.dark .products-shelf-desc,
 html.dark .products-intro-lead,
 html.dark .pipeline-about-lead,
-html.dark .hero-lead,
-html.dark .coming-soon-card p {
+html.dark .hero-lead {
   color: var(--ha-muted);
 }
 
@@ -689,7 +681,6 @@ html.dark .contact-field textarea::placeholder {
 html.dark .contact-info-icon-wrap,
 html.dark .pipeline-icon-wrap,
 html.dark .products-shelf-icon-wrap,
-html.dark .coming-icon-wrap,
 html.dark .product-card-icon-wrap {
   background: var(--ha-icon-well);
   border-color: var(--ha-border);
@@ -731,7 +722,6 @@ html.dark .gv-cta-btn-secondary {
 }
 
 html.dark .product-tag,
-html.dark .expanding-badge,
 html.dark .ib-market-tag {
   background: var(--ha-tag-bg);
   color: var(--ha-tag-text);
@@ -763,14 +753,8 @@ html.dark .navbar-toggle-bar {
   background: var(--ha-heading);
 }
 
-html.dark .section-eyebrow,
-html.dark .coming-icon {
+html.dark .section-eyebrow {
   color: var(--ha-accent);
-}
-
-html.dark .coming-soon-card {
-  background: linear-gradient(160deg, rgba(30, 28, 23, 0.96) 0%, rgba(26, 24, 18, 0.92) 50%, rgba(74, 222, 128, 0.08) 100%);
-  border-color: rgba(74, 222, 128, 0.28);
 }
 
 html.dark .btn-secondary {

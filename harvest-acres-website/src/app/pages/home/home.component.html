@@ -29,20 +29,20 @@
       <div class="hero-visual-card">
         <div class="hero-visual-wrap">
           <img
-            src="/Images/Product%20line%20up.png"
-            alt="Harvest Acres product lineup — water, fruit juices, and Tamba drinks"
+            src="/Images/cordial-lineup-transparent.png"
+            alt="Four Harvest Acres 2L cordials in grape, lemon and lime, peach and granadilla, and pineapple"
             class="hero-split-img"
-            width="1920"
-            height="1080"
+            width="1672"
+            height="941"
             fetchpriority="high"
           />
           <div class="hero-img-edge-blur" aria-hidden="true">
             <img
-              src="/Images/Product%20line%20up.png"
+              src="/Images/cordial-lineup-transparent.png"
               alt=""
               class="hero-split-img hero-split-img--edge-blur"
-              width="1920"
-              height="1080"
+              width="1672"
+              height="941"
             />
           </div>
         </div>
@@ -183,20 +183,20 @@
       <div class="reveal products-intro-visual" [style.transition-delay.ms]="80">
         <div class="products-intro-inner">
           <img
-            src="/Images/product%20display.png"
-            alt="Harvest Acres products on shelf — mineral water, 2L cordials, and Tamba ready-to-drink juices"
+            src="/Images/harvest-acres-drink-cups.png"
+            alt="Two hands holding red and yellow iced Harvest Acres drinks"
             class="products-intro-img"
             loading="lazy"
-            width="1200"
-            height="800"
+            width="1111"
+            height="1415"
           />
           <div class="products-intro-edge-blur" aria-hidden="true">
             <img
-              src="/Images/product%20display.png"
+              src="/Images/harvest-acres-drink-cups.png"
               alt=""
               class="products-intro-img products-intro-img--edge-blur"
-              width="1200"
-              height="800"
+              width="1111"
+              height="1415"
             />
           </div>
         </div>
@@ -234,65 +234,3 @@
 
   </div>
 </section>
-
-
-
-<!-- COMING SOON -->
-<section class="section-pad section-pad--compact-t px-5 md:px-6 bg-harvest-cream section-cream">
-  <div class="max-w-6xl mx-auto">
-
-    <div class="reveal text-center mb-8 md:mb-10">
-      <p class="section-eyebrow">On the Horizon</p>
-      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-harvest-brown mb-3 tracking-tight">
-        Coming Soon
-      </h2>
-      <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-        New flavours and formats are on the way — from sugarcane juice to baobab drinks and herbal infusions.
-      </p>
-    </div>
-
-    <div class="coming-soon-stack">
-      <div class="reveal coming-soon-visual" [style.transition-delay.ms]="80">
-        <div class="coming-soon-inner">
-          <img
-            src="/Images/Coming%20soons.png"
-            alt="Harvest Acres coming soon — Sugarcane Juice, Flavoured & Sparkling Water, Baobab Drink, and Iced Tea & Herbal Infusions"
-            class="coming-soon-img"
-            loading="lazy"
-            width="1200"
-            height="800"
-          />
-          <div class="coming-soon-edge-blur" aria-hidden="true">
-            <img
-              src="/Images/Coming%20soons.png"
-              alt=""
-              class="coming-soon-img coming-soon-img--edge-blur"
-              width="1200"
-              height="800"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="coming-soon-grid">
-        @for (item of comingSoon; track item.title; let i = $index) {
-          <article class="reveal coming-soon-card" [style.transition-delay.ms]="140 + i * 70">
-            <span class="coming-badge">Soon</span>
-            <div class="coming-icon-wrap">
-              <lucide-icon [name]="item.icon" class="coming-icon"></lucide-icon>
-            </div>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-            <div class="flavor-tags coming-soon-tags">
-              @for (tag of item.highlights; track tag) {
-                <span class="flavor-tag">{{ tag }}</span>
-              }
-            </div>
-          </article>
-        }
-      </div>
-    </div>
-
-  </div>
-</section>
-

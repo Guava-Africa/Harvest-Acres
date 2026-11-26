@@ -90,7 +90,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     {
       icon: 'map-pin',
       title: 'Headquarters',
-      detail: 'No 1 Martin Road, Msasa, Harare',
+      detail: '55 Lawley Drive, Belvedere, Harare',
     },
     {
       icon: 'factory',

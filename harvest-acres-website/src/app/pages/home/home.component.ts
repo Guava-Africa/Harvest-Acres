@@ -10,13 +10,6 @@ interface ShelfProduct {
   highlights: string[];
 }
 
-interface ComingSoonItem {
-  icon: string;
-  title: string;
-  description: string;
-  highlights: string[];
-}
-
 interface Stat {
   label: string;
   target: number;
@@ -59,40 +52,13 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       icon: 'droplets',
       title: '2L Fruit Cordials',
       description: 'Bold, fruit-forward cordials perfect for sharing — rich flavour in every pour.',
-      highlights: ['Grape', 'Peach & Granadilla', '2 Litre'],
+      highlights: ['Grape', 'Lemon & Lime', 'Peach & Granadilla', 'Pineapple', '2 Litre'],
     },
     {
       icon: 'sparkles',
       title: 'Tamba Ready-to-Drink',
-      description: 'Fun, character-led 500ml juices — grab-and-go refreshment with real fruit taste.',
-      highlights: ['Gogo Grape', 'Captain Pine', 'Zinga Zang', 'Peach & Dyla'],
-    },
-  ];
-
-  comingSoon: ComingSoonItem[] = [
-    {
-      icon: 'zap',
-      title: 'Sugarcane Juice',
-      description: 'Fresh-pressed from Zimbabwean sugarcane stalks — natural, energizing hydration in every glass.',
-      highlights: ['Fresh-Pressed', 'Natural Energy'],
-    },
-    {
-      icon: 'sparkles',
-      title: 'Flavoured & Sparkling Water',
-      description: 'Light fruit infusions and crisp sparkling refreshment — hydration with a twist.',
-      highlights: ['Sparkling', 'Infused'],
-    },
-    {
-      icon: 'sprout',
-      title: 'Baobab Drink',
-      description: 'Creamy baobab goodness rich in Vitamin C — a true Zimbabwean superfruit experience.',
-      highlights: ['Vitamin C', 'Superfruit'],
-    },
-    {
-      icon: 'leaf',
-      title: 'Iced Tea & Herbal Infusions',
-      description: 'Cooling iced tea and wellness herbal blends — starting with refreshing Lemon & Mint.',
-      highlights: ['Lemon & Mint', 'Herbal Blends'],
+      description: 'Fun, character-led 300ml juices — grab-and-go refreshment with real fruit taste.',
+      highlights: ['Gogo Grape', 'Captain Pine', 'Zing & Zang', 'Peachy & Dilla'],
     },
   ];
 
