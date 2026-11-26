@@ -25,27 +25,33 @@
       </div>
     </div>
 
-    <div class="hero-split-visual">
-      <div class="hero-visual-card">
-        <div class="hero-visual-wrap">
+    <div class="hero-split-visual"
+         role="region"
+         aria-roledescription="carousel"
+         aria-label="Featured Harvest Acres products"
+         (mouseenter)="heroHovered = true"
+         (mouseleave)="heroHovered = false">
+      <div class="hero-visual-wrap" [attr.aria-live]="heroPlaying ? 'off' : 'polite'">
+        @for (slide of heroSlides; track slide.src; let i = $index) {
           <img
-            src="/Images/cordial-lineup-transparent.png"
-            alt="Four Harvest Acres 2L cordials in grape, lemon and lime, peach and granadilla, and pineapple"
+            [src]="slide.src"
+            [alt]="slide.alt"
+            [attr.aria-hidden]="i !== heroSlideIndex ? 'true' : null"
+            [attr.fetchpriority]="i === 0 ? 'high' : 'low'"
             class="hero-split-img"
-            width="1672"
-            height="941"
-            fetchpriority="high"
+            [class.hero-split-img--active]="i === heroSlideIndex"
+            [width]="slide.width"
+            [height]="slide.height"
           />
-          <div class="hero-img-edge-blur" aria-hidden="true">
-            <img
-              src="/Images/cordial-lineup-transparent.png"
-              alt=""
-              class="hero-split-img hero-split-img--edge-blur"
-              width="1672"
-              height="941"
-            />
-          </div>
-        </div>
+        }
+      </div>
+      <div class="hero-carousel-controls">
+        <button type="button" (click)="heroPlaying = !heroPlaying">
+          {{ heroPlaying ? 'Pause' : 'Play' }}
+        </button>
+        <button type="button" aria-label="Previous slide" (click)="selectHeroSlide(-1)">‹</button>
+        <span aria-hidden="true">{{ heroSlideIndex + 1 }} / {{ heroSlides.length }}</span>
+        <button type="button" aria-label="Next slide" (click)="selectHeroSlide(1)">›</button>
       </div>
     </div>
 

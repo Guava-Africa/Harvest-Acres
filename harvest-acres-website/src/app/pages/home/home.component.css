@@ -201,132 +201,63 @@
 /* ── Visual column ── */
 
 .hero-split-visual {
-  animation:
-    heroVisualIn 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both,
-    haImgFloat 8s ease-in-out 1.4s infinite;
-}
-
-.hero-visual-card {
-  position: relative;
-  width: 100%;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
+  min-width: 0;
 }
 
 .hero-visual-wrap {
   position: relative;
-  width: 100%;
+  height: clamp(13rem, 44svh, 28rem);
   border-radius: 1.5rem;
   overflow: hidden;
-  isolation: isolate;
-  --hero-parallax: 0;
 }
 
 .hero-split-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: min(44vh, 400px);
-  object-fit: contain;
-  object-position: center center;
-  border-radius: 1.5rem;
-  transform: translateY(var(--hero-parallax, 0));
-  transition: transform 0.1s linear;
-  will-change: transform;
-  -webkit-mask-image:
-    radial-gradient(ellipse 100% 100% at 50% 50%, black 94%, transparent 100%);
-  mask-image:
-    radial-gradient(ellipse 100% 100% at 50% 50%, black 94%, transparent 100%);
-  animation: heroImgPop 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
-}
-
-.hero-img-edge-blur {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  overflow: hidden;
-  pointer-events: none;
-  -webkit-mask-image:
-    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 80%, black 100%);
-  mask-image:
-    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 80%, black 100%);
-}
-
-.hero-split-img--edge-blur {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  max-height: none;
   object-fit: contain;
-  object-position: center center;
-  filter: blur(4px);
-  transform: scale(1.05) translateY(var(--hero-parallax, 0));
-  animation: edgeGlowPulse 7s ease-in-out infinite;
-  -webkit-mask-image: none;
-  mask-image: none;
-  opacity: 0.85;
+  opacity: 0;
+  transition: opacity 500ms ease;
 }
 
-@keyframes edgeGlowPulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 0.95; }
+.hero-split-img--active {
+  opacity: 1;
 }
 
-@media (min-width: 768px) {
-  .hero-visual-card {
-    padding: 0;
-    border-radius: 0;
-  }
+.hero-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  color: var(--ha-text);
+  font-size: 0.875rem;
+}
 
+.hero-carousel-controls button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--ha-btn-secondary-border);
+  border-radius: 999px;
+  background: var(--ha-surface);
+  cursor: pointer;
+}
+
+.hero-carousel-controls button:hover {
+  background: var(--ha-surface-hover);
+}
+
+.hero-carousel-controls button:focus-visible {
+  outline: 2px solid var(--ha-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
   .hero-split-img {
-    max-height: min(50vh, 460px);
-    border-radius: 1.5rem;
+    transition: none;
   }
-
-  .hero-visual-wrap {
-    border-radius: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-split-img {
-    max-height: min(54vh, 500px);
-    -webkit-mask-image:
-      radial-gradient(ellipse 100% 100% at 50% 50%, black 95%, transparent 100%);
-    mask-image:
-      radial-gradient(ellipse 100% 100% at 50% 50%, black 95%, transparent 100%);
-  }
-
-  .hero-img-edge-blur {
-    -webkit-mask-image:
-      radial-gradient(ellipse 100% 100% at 50% 50%, transparent 84%, black 100%);
-    mask-image:
-      radial-gradient(ellipse 100% 100% at 50% 50%, transparent 84%, black 100%);
-  }
-}
-
-@keyframes heroVisualIn {
-  from {
-    opacity: 0;
-    transform: translateY(36px) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes heroVisualFloat {
-  0%, 100% { margin-top: 0; }
-  50% { margin-top: -8px; }
-}
-
-@keyframes heroImgPop {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 .hero-home--split .btn-primary,
@@ -1366,23 +1297,16 @@
   .hero-home--split,
   .hero-split-copy,
   .hero-split-visual,
-  .hero-split-img,
   .products-intro-visual,
   .cta-section::before {
     animation: none !important;
   }
 
-  .hero-home::before,
-  .hero-split-img,
-  .hero-split-img--edge-blur {
+  .hero-home::before {
     transform: none !important;
     -webkit-mask-image: none;
     mask-image: none;
     filter: none;
-  }
-
-  .hero-img-edge-blur {
-    display: none;
   }
 
   .pipeline-section-bg,

@@ -1,4 +1,4 @@
-import { Component, ElementRef, AfterViewInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
@@ -33,6 +33,31 @@ interface PipelineStep {
 export class HomeComponent implements AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
   private statsObserver?: IntersectionObserver;
+  readonly heroSlides = [
+    {
+      src: '/Images/cordial-lineup-transparent.png',
+      alt: 'Four Harvest Acres 2L cordials in grape, lemon and lime, peach and granadilla, and pineapple',
+      width: 1672,
+      height: 941,
+    },
+    {
+      src: '/Images/tamba-captain-pine.jpg',
+      alt: 'Tamba Captain Pine pineapple drink served with fresh pineapple and ice',
+      width: 1122,
+      height: 1402,
+    },
+    {
+      src: '/Images/cordials-family-breakfast.png',
+      alt: 'A family sharing breakfast with four Harvest Acres cordials',
+      width: 1254,
+      height: 1254,
+    },
+  ];
+  heroSlideIndex = 0;
+  heroPlaying = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  heroHovered = false;
+  private heroTimer?: number;
+
   statsAnimated = false;
 
   stats: Stat[] = [
@@ -90,22 +115,25 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.setupScrollReveal();
     this.setupStatsCounter();
-    this.updateHeroParallax();
+    this.heroTimer = window.setInterval(() => {
+      if (this.heroPlaying && !this.heroHovered && !document.hidden) {
+        this.advanceHeroSlide(1);
+      }
+    }, 6000);
   }
 
-  @HostListener('window:scroll')
-  onScroll(): void {
-    this.updateHeroParallax();
+  selectHeroSlide(direction: number): void {
+    this.heroPlaying = false;
+    this.advanceHeroSlide(direction);
   }
 
-  private updateHeroParallax(): void {
-    const wrap = this.el.nativeElement.querySelector('.hero-visual-wrap') as HTMLElement | null;
-    if (!wrap) return;
-    const offset = Math.min(window.scrollY * 0.15, 60);
-    wrap.style.setProperty('--hero-parallax', `${offset}px`);
+  private advanceHeroSlide(direction: number): void {
+    const count = this.heroSlides.length;
+    this.heroSlideIndex = (this.heroSlideIndex + direction + count) % count;
   }
 
   ngOnDestroy(): void {
+    window.clearInterval(this.heroTimer);
     this.observer?.disconnect();
     this.statsObserver?.disconnect();
   }
